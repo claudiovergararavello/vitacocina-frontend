@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import './Inicio.css'; 
 
 function Inicio({ isOpen, onClose }) {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Nombre de Usuario:', username);
+    console.log('Correo Electrónico:', email);
     console.log('Contraseña:', password);
     onClose(); // Cierra el modal después de enviar el formulario
   };
@@ -21,13 +21,13 @@ function Inicio({ isOpen, onClose }) {
         <div className="title-divider"></div>
         <form onSubmit={handleSubmit} className="login-form">
           <div className="form-group">
-            <label htmlFor="username">Nombre de Usuario</label>
+            <label htmlFor="email">Correo Electrónico</label>
             <input
-              type="text"
-              id="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="Ingresa tu nombre de usuario"
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Ingresa tu correo electrónico"
               required
             />
           </div>

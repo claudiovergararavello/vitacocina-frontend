@@ -5,9 +5,21 @@ function Registrarse({ isOpen, onClose }) {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState(''); // Para mostrar errores
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    // Validar que las contraseñas coincidan
+    if (password !== confirmPassword) {
+      setError('Las contraseñas no coinciden');
+      return;
+    }
+
+    // Si las contraseñas coinciden, limpia el error
+    setError('');
+
     // Aquí puedes agregar la lógica para manejar el registro
     console.log('Nombre de Usuario:', username);
     console.log('Correo Electrónico:', email);
@@ -57,6 +69,20 @@ function Registrarse({ isOpen, onClose }) {
               required
             />
           </div>
+          <div className="form-group">
+            <label htmlFor="confirmPassword">Confirmar Contraseña</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              placeholder="Confirma tu contraseña"
+              required
+            />
+          </div>
+          
+          {error && <p className="error-message">{error}</p>}
+
           <button type="submit" className="btn-register">
             Registrarse
           </button>
