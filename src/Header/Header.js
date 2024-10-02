@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Header.css';
 import { NavLink, Link } from 'react-router-dom';
-import Inicio from '../Inicio/Inicio';
+import Login from '../Login/Login';
 import Registrarse from '../Registrarse/Registrarse';
 
 function Header() {
@@ -114,7 +114,7 @@ function Header() {
       </header>
 
       {/* Modals */}
-      <Inicio isOpen={isLoginModalOpen} onClose={closeLoginModal} />
+      <Login isOpen={isLoginModalOpen} onClose={closeLoginModal} />
       <Registrarse isOpen={isRegisterModalOpen} onClose={closeRegisterModal} />
     </>
   );

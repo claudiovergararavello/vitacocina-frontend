@@ -1,54 +1,64 @@
 import React, { useState } from 'react';
-import './Inicio.css'; 
+import './Inicio.css';
 
-function Inicio({ isOpen, onClose }) {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+const recetas = [
+  { id: 1, titulo: 'Título', imagen: '', valoracion: 'Valoración' },
+  { id: 2, titulo: 'Título', imagen: '', valoracion: 'Valoración' },
+  { id: 3, titulo: 'Título', imagen: '', valoracion: 'Valoración' },
+  { id: 4, titulo: 'Título', imagen: '', valoracion: 'Valoración' },
+  { id: 5, titulo: 'Título', imagen: '', valoracion: 'Valoración' },
+  { id: 6, titulo: 'Título', imagen: '', valoracion: 'Valoración' },
+];
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Nombre de Usuario:', username);
-    console.log('Contraseña:', password);
-    onClose(); // Cierra el modal después de enviar el formulario
+const consejos = [
+  { id: 1, titulo: 'Consejo', imagen: '', valoracion: 'Valoración' },
+  { id: 2, titulo: 'Consejo', imagen: '', valoracion: 'Valoración' },
+  { id: 3, titulo: 'Consejo', imagen: '', valoracion: 'Valoración' },
+  { id: 4, titulo: 'Consejo', imagen: '', valoracion: 'Valoración' },
+  { id: 5, titulo: 'Consejo', imagen: '', valoracion: 'Valoración' },
+  { id: 6, titulo: 'Consejo', imagen: '', valoracion: 'Valoración' },
+];
+
+function Inicio() {
+  const [recetaIndex, setRecetaIndex] = useState(0);
+  const [consejoIndex, setConsejoIndex] = useState(0);
+
+  const nextRecetas = () => {
+    setRecetaIndex((prevIndex) => (prevIndex + 4) % recetas.length);
   };
 
-  if (!isOpen) return null;
+  const nextConsejos = () => {
+    setConsejoIndex((prevIndex) => (prevIndex + 4) % consejos.length);
+  };
 
   return (
-    <div className="modal-overlay">
-      <div className="modal-content">
-        <h2>Iniciar Sesión</h2>
-        <div className="title-divider"></div>
-        <form onSubmit={handleSubmit} className="login-form">
-          <div className="form-group">
-            <label htmlFor="username">Nombre de Usuario</label>
-            <input
-              type="text"
-              id="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="Ingresa tu nombre de usuario"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">Contraseña</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Ingresa tu contraseña"
-              required
-            />
-          </div>
-          <button type="submit" className="btn-login">
-            Iniciar Sesión
-          </button>
-        </form>
-        <button onClick={onClose} className="btn-close">
-          Cerrar
-        </button>
+    <div className="inicio">
+      <h2>Recetas Mejor Evaluadas</h2>
+      <div className="carrusel">
+        <div className="recetas">
+          {recetas.slice(recetaIndex, recetaIndex + 4).map((receta) => (
+            <div className="item" key={receta.id}>
+              <h3>{receta.titulo}</h3>
+              <div className="imagen">[Imagen]</div>
+              <p>{receta.valoracion}</p>
+            </div>
+          ))}
+        </div>
+        <button onClick={nextRecetas}>Siguiente</button>
+      </div>
+
+      <h2>Consejos Mejor Evaluados</h2>
+      <div className="carrusel">
+        <div className="consejos">
+          {consejos.slice(consejoIndex, consejoIndex + 4).map((consejo) => (
+            <div className="item" key={consejo.id}>
+              <h3>{consejo.titulo}</h3>
+              <div className="imagen">[Imagen]</div>
+              <p>{consejo.valoracion}</p>
+            </div>
+          ))}
+        </div>
+        <button onClick={nextConsejos}>Siguiente</button>
       </div>
     </div>
   );
