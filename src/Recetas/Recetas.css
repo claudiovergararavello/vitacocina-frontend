@@ -1,0 +1,118 @@
+.checked {
+    color: #ffc107;
+}
+.contenedor_principal {
+    display: flex;
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: center;
+    padding-top: 30px;
+    gap: 20px;
+}
+.contenedor_ip{
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: center; 
+    padding-top: 30px; 
+    padding-bottom: 30px; 
+    gap: 20px;
+}
+.redes_sociales{
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    padding: 0px;
+}
+.contenedor_redes_sociales{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.contenedor_valoracion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.contenedor_receta{
+    padding: 10px;
+    max-width: 1200px;
+    margin: 0 auto; 
+}
+.contenedor_img{
+    border: 1px solid #000;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.contenedor_informacion{
+    padding: 0 20px; 
+    text-align: center;
+}
+.contenedor_linea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+.linea {
+    flex: 1;
+    height: 1px;
+    background-color: black;
+    margin: 0 20px;
+}
+.texto_linea {
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+}
+.boton-carrito{
+    background-color: red;
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
+    margin-top: 0;
+}
+.boton-comentario{
+    padding: '10px 20px';
+    background-color: black;
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
+    align-self: flex-end;
+}
+.clase-preparacion{
+    border: 1px solid #000; 
+    border-radius: 5px; 
+    width: 90%; 
+    max-width: 500px; 
+    height: 500px;
+    padding: 10px;
+    text-align: center;
+}
+@media (max-width: 750px ) {
+    .contenedor_principal {
+        display: flex;
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center;
+        padding-top: 30px;
+        gap: 20px; 
+    }
+    .contenedor_ip{    
+        display: flex; 
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center; 
+        padding-top: 30px; 
+        padding-bottom: 30px; 
+        gap: 20px; 
+    }
+    .contenedor_linea {
+        align-items: center;
+        justify-content: center;
+        margin: 20px 0;
+    }
+}

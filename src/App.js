@@ -13,6 +13,7 @@ import Buscador from './Recetas/Buscador';
 import Consejo1 from './Consejos/Consejo1';
 import Consejo2 from './Consejos/Consejo2';
 import Consejo3 from './Consejos/Consejo3';
+import Receta from './Recetas/Receta';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/registrarse" element={<Registrarse />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/receta" element={<Receta />} />
         </Routes>
       </div>
     </Router>
