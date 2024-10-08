@@ -13,6 +13,7 @@ import Buscador from './Recetas/Buscador';
 import Consejo1 from './Consejos/Consejo1';
 import Consejo2 from './Consejos/Consejo2';
 import Consejo3 from './Consejos/Consejo3';
+import Receta from './Recetas/Receta';
 
 function App() {
   return (
@@ -23,9 +24,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Inicio />} />
           <Route path="/recetas" element={<Recetas />}>
-            <Route path="entradas" element={<Favoritos />} />
-            <Route path="platos-principales" element={<Creacion />} />
-            <Route path="postres" element={<Buscador />} />
+            <Route path="favoritos" element={<Favoritos />} />
+            <Route path="creacion" element={<Creacion />} />
+            <Route path="buscador" element={<Buscador />} />
           </Route>
           <Route path="/consejos" element={<Consejos />}>
             <Route path="Consejo1" element={<Consejo1 />} />
@@ -35,6 +36,7 @@ function App() {
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/registrarse" element={<Registrarse />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/receta" element={<Receta />} />
         </Routes>
       </div>
     </Router>
