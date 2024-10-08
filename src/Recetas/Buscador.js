@@ -2,6 +2,8 @@ import {useEffect, useState} from 'react';
 import axios from "axios";
 import './Recetas.css';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const recetas = [
   { id: 1, titulo: 'Título 1', imagen: '', valoracion: 'Valoración' },
@@ -109,7 +111,7 @@ function Buscador() {
     <div style={{paddingBottom: '10px'}}>
       <div>
         <input value={busqueda} placeholder="ej: porotos con riendas" className='buscador' onChange={handleChange}/>
-        <button>Buscar</button>
+        <button className='button-envio'>Buscar</button>
       </div>
       <div style={{marginTop: '20px'}}>
         <div className='contenedor-filtros'>
@@ -143,7 +145,7 @@ function Buscador() {
         </div>
         <div style={{display: 'flex', justifyContent:'center', gap: '10px'}}>
           <div>
-            <button>Ordenar</button>
+            <button className='button-envio'>Ordenar</button>
           </div>
           <div>
             <select className="select-filtrar" name="selectOrden">
@@ -165,9 +167,9 @@ function Buscador() {
           ))}
         </div>
         <div style={{display: 'flex', justifyContent:'space-around', margin: '15px'}}>
-          <button onClick={backRecetas} className='boton-envio'>Anterior</button>
+          <button onClick={backRecetas} className='boton-siguiente-buscador'><FontAwesomeIcon icon={faArrowLeft}/></button>
           <p>Página {currentPage} de {totalPages}</p>
-          <button onClick={nextRecetas} className='boton-envio'>Siguiente</button>
+          <button onClick={nextRecetas} className='boton-siguiente-buscador'><FontAwesomeIcon icon={faArrowRight}/></button>
         </div>
       </div>
      {/*<div>

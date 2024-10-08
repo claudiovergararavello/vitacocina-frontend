@@ -33,11 +33,10 @@
   justify-content: center;
   align-items: center;
 }
-
-button {
+.boton-siguiente {
   margin-top: 10px;
   padding: 10px 20px;
-  background-color: #000; /* Cambiado a negro */
+  background-color: #000;
   color: white;
   border: none;
   border-radius: 5px;
@@ -45,6 +44,6 @@ button {
   font-weight: bold;
 }
 
-button:hover {
-  background-color: #333; /* Ligeramente más claro en hover */
+.boton-siguiente:hover {
+  background-color: #333;
 }

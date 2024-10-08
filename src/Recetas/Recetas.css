@@ -133,10 +133,10 @@
   
 .recetas-carrusel {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
-    grid-template-rows: repeat(2, 1fr); /* 2 filas */
-    gap: 10px; /* Espacio entre los elementos */
-    width: 80%; /* Ajusta el ancho del carrusel */
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    width: 80%;
     justify-items: center;
 }
 
@@ -161,7 +161,7 @@
 .button-envio {
     margin-top: 10px;
     padding: 10px 20px;
-    background-color: #000; /* Cambiado a negro */
+    background-color: #000;
     color: white;
     border: none;
     border-radius: 5px;
@@ -171,7 +171,7 @@
 .button-filtrar {
     margin-top: 10px;
     padding: 10px 20px;
-    background-color: #d0021b; /* Cambiado a negro */
+    background-color: #d0021b;
     color: white;
     border: none;
     border-radius: 5px;
@@ -179,10 +179,10 @@
     font-weight: bold;
 }
 .button-filtrar:hover {
-    background-color: #bd0419; /* Ligeramente más claro en hover */
+    background-color: #bd0419;
 }
 .button-envio:hover {
-    background-color: #333; /* Ligeramente más claro en hover */
+    background-color: #333;
 }
 .select-filtrar{
     margin-top: 10px;
@@ -198,24 +198,35 @@
     justify-content:center;
     gap: 10px;
 }
+.boton-siguiente-buscador {
+    padding: 10px;
+    background-color: #FFF;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-size: x-large;
+}
+
+.boton-siguiente-buscador:hover {
+    background-color:#FFF;
+}
 @media (max-width: 1250px) {
     .recetas-carrusel {
-      grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas medianas */
-      grid-template-rows: repeat(4, 1fr);    /* 4 filas */
-      width: 90%; /* Ajusta el ancho del carrusel */
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      width: 90%;
     }
 }
   
-/* Media Query para pantallas pequeñas (móviles) */
 @media (max-width: 600px) {
     .recetas-carrusel {
-        grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
-        grid-template-rows: repeat(8, 1fr);    /* 8 filas (cada ítem ocupa una fila) */
-        width: 100%; /* Ancho completo para móviles */
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(8, 1fr);
+        width: 100%;
     }
     .receta-item {
         padding: 15px;
-        font-size: 16px; /* Ajustar el tamaño de la fuente en pantallas pequeñas */
+        font-size: 16px;
     }
 } 
 @media (max-width: 650px) {

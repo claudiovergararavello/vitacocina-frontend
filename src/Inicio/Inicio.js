@@ -57,7 +57,7 @@ function Inicio() {
             </div>
           ))}
         </div>
-        <button onClick={nextRecetas}>Siguiente</button>
+        <button onClick={nextRecetas} className='boton-siguiente'>Siguiente</button>
       </div>
 
       <h2>Consejos Mejor Evaluados</h2>
@@ -71,7 +71,7 @@ function Inicio() {
             </div>
           ))}
         </div>
-        <button onClick={nextConsejos}>Siguiente</button>
+        <button onClick={nextConsejos} className='boton-siguiente'>Siguiente</button>
       </div>
     </div>
   );
