@@ -39,6 +39,7 @@ nav li{
     color: white;
     font-weight: bolder;
     letter-spacing: 0.05em;
+    cursor: pointer;
 }
 .header-nav.activo {
     font-weight: bold;

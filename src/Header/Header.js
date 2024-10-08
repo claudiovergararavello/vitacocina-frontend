@@ -1,10 +1,17 @@
 import React, { useState, useEffect, useRef  } from 'react';
 import './Header.css';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useLocation  } from 'react-router-dom';
 import Login from '../Login/Login';
 import Registrarse from '../Registrarse/Registrarse';
 
-function Header() {
+function Header(){
+  // Location
+  const location = useLocation();
+
+  // Paths
+  const isRecetasActive = location.pathname.startsWith("/recetas");
+  const isConsejosActive = location.pathname.startsWith("/consejos");
+
   // Estados
   const [isMobile, setIsMobile] = useState(false);
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
@@ -12,67 +19,75 @@ function Header() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const recetasMenuRef = useRef(null);
   const consejosMenuRef = useRef(null);
-  // Modals
+
+  // Modal Login
   const openLoginModal = () => setLoginModalOpen(true);
   const closeLoginModal = () => setLoginModalOpen(false);
 
+  // Modal Registro
   const openRegisterModal = () => setRegisterModalOpen(true);
   const closeRegisterModal = () => setRegisterModalOpen(false);
 
-  // Toggle Recetas
+  // Toggle Menu
   const toggleMenu = () => setMenuOpen(!isMenuOpen);
 
+  // Toggle Recetas
   const toggleRecetasDropdown = (e) => {
     e.preventDefault()
-    if (isMobile) {
+      setConsejosDropdownOpen(false);
       setRecetasDropdownOpen(!isRecetasDropdownOpen);
-    }
+    
   };
-  
+  // Toggle Consejos
   const toggleConsejosDropdown = (e) => {
     e.preventDefault();
-    setConsejosDropdownOpen(!isConsejosDropdownOpen);
+   
+      setRecetasDropdownOpen(false);
+      setConsejosDropdownOpen(!isConsejosDropdownOpen);
+    
   };
 
-  // Detectar clic fuera del menú para cerrarlo
+  // Funcion que cierra los dropdowns al hacer clic fuera
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (consejosMenuRef.current && !consejosMenuRef.current.contains(event.target)) {
+      if(recetasMenuRef.current && !recetasMenuRef.current.contains(event.target)){
         setRecetasDropdownOpen(false);
       }
+      if(consejosMenuRef.current && !consejosMenuRef.current.contains(event.target)){
+        setConsejosDropdownOpen(false);
+      }
     };
-
-    // Añadir el evento cuando el componente está montado
+  
     document.addEventListener('mousedown', handleClickOutside);
-    
-    // Limpiar el evento cuando el componente se desmonta
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [consejosMenuRef]);
+  }, [recetasMenuRef, consejosMenuRef]);
 
+  // Funcion que reconoce el tamaño del dispositivo
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 750); // Considerar móvil si el ancho es menor a 768px
+      setIsMobile(window.innerWidth < 750);
     };
-
-    // Ejecutar la detección cuando se redimensione la pantalla
     window.addEventListener('resize', handleResize);
-
-    // Ejecutar al montar el componente para detectar el tamaño inicial
     handleResize();
-
-    // Limpiar el evento cuando el componente se desmonta
     return () => window.removeEventListener('resize', handleResize);
-  }, [recetasMenuRef]);
+  }, []);
 
-  // Dropdown states
+  // Dropdown Recetas
   const [isRecetasDropdownOpen, setRecetasDropdownOpen] = useState(false);
-  const handleRecetasMouseEnter = () => setRecetasDropdownOpen(true);
+  const handleRecetasMouseEnter = () => {
+    setConsejosDropdownOpen(false);
+    setRecetasDropdownOpen(true);
+  };
   const handleRecetasMouseLeave = () => setRecetasDropdownOpen(false);
 
+  // Dropdown Consejos
   const [isConsejosDropdownOpen, setConsejosDropdownOpen] = useState(false);
-  const handleConsejosMouseEnter = () => setConsejosDropdownOpen(true);
+  const handleConsejosMouseEnter = () => {
+    setRecetasDropdownOpen(false);
+    setConsejosDropdownOpen(true);
+  };
   const handleConsejosMouseLeave = () => setConsejosDropdownOpen(false);
 
   return (
@@ -105,42 +120,42 @@ function Header() {
                 INICIO
               </NavLink>
             </li>
-            {/* PC */}
+            {/* Mobile */}
             {isMobile && (
               <li onClick={toggleRecetasDropdown} ref={recetasMenuRef}>
-                <NavLink to="/recetas" className={({ isActive }) => (isActive ? 'header-nav activo' : 'header-nav')}>
+                <span className={`header-nav ${isRecetasActive ? 'activo' : ''}`}>
                   RECETAS
-                </NavLink>
+                </span>
                 {isRecetasDropdownOpen && (
                   <ul className="dropdown-menu">
-                    <li><NavLink to="/recetas/entradas">Recetas favoritas</NavLink></li>
-                    <li><NavLink to="/recetas/platos-principales">Publicar recetas</NavLink></li>
-                    <li><NavLink to="/recetas/postres">Buscador de recetas</NavLink></li>
+                    <li><NavLink to="/recetas/favoritos">Recetas favoritas</NavLink></li>
+                    <li><NavLink to="/recetas/creacion">Publicar recetas</NavLink></li>
+                    <li><NavLink to="/recetas/buscador">Buscador de recetas</NavLink></li>
+                  </ul>
+                )}
+              </li> 
+            )}
+            {/* PC */}
+            {!isMobile && (
+              <li onMouseEnter={handleRecetasMouseEnter} onMouseLeave={handleRecetasMouseLeave}>
+                <span className={`header-nav ${isRecetasActive ? 'activo' : ''}`}>
+                  RECETAS
+                </span>
+                {isRecetasDropdownOpen && (
+                  <ul className="dropdown-menu">
+                    <li><NavLink to="/recetas/favoritos">Recetas favoritas</NavLink></li>
+                    <li><NavLink to="/recetas/creacion">Publicar recetas</NavLink></li>
+                    <li><NavLink to="/recetas/buscador">Buscador de recetas</NavLink></li>
                   </ul>
                 )}
               </li> 
             )}
             {/* Mobile */}
-            {!isMobile && (
-              <li onMouseEnter={handleRecetasMouseEnter} onMouseLeave={handleRecetasMouseLeave} >
-                <NavLink to="/recetas" className={({ isActive }) => (isActive ? 'header-nav activo' : 'header-nav')}>
-                  RECETAS
-                </NavLink>
-                {isRecetasDropdownOpen && (
-                  <ul className="dropdown-menu">
-                    <li><NavLink to="/recetas/entradas">Recetas favoritas</NavLink></li>
-                    <li><NavLink to="/recetas/platos-principales">Publicar recetas</NavLink></li>
-                    <li><NavLink to="/recetas/postres">Buscador de recetas</NavLink></li>
-                  </ul>
-                )}
-              </li> 
-            )}
-            {/* PC */}
             {isMobile && (
               <li onClick={toggleConsejosDropdown} ref={consejosMenuRef} >
-              <NavLink to="/consejos" className={({ isActive }) => (isActive ? 'header-nav activo' : 'header-nav')}>
-                CONSEJOS
-              </NavLink>
+              <span className={`header-nav ${isConsejosActive ? 'activo' : ''}`}>
+                  CONSEJOS
+              </span>
               {isConsejosDropdownOpen && (
                 <ul className="dropdown-menu">
                   <li><NavLink to="/consejos/consejo1">Consejo número 1</NavLink></li>
@@ -150,12 +165,12 @@ function Header() {
               )}
             </li> 
             )}
-            {/* Mobile */}
+            {/* PC */}
             {!isMobile && (
-              <li onMouseEnter={handleConsejosMouseEnter} onMouseLeave={handleConsejosMouseLeave} >
-              <NavLink to="/consejos" className={({ isActive }) => (isActive ? 'header-nav activo' : 'header-nav')}>
-                CONSEJOS
-              </NavLink>
+              <li onMouseEnter={handleConsejosMouseEnter} onMouseLeave={handleConsejosMouseLeave}>
+              <span className={`header-nav ${isConsejosActive ? 'activo' : ''}`}>
+                  CONSEJOS
+              </span>
               {isConsejosDropdownOpen && (
                 <ul className="dropdown-menu">
                   <li><NavLink to="/consejos/consejo1">Consejo número 1</NavLink></li>

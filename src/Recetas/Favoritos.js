@@ -3,7 +3,7 @@ import React from 'react';
 function Favoritos() {
   return (
     <div>
-      <h2>Hola Favoritos</h2>
+      <h2>Para acceder a este contenido debes logearte</h2>
     </div>
   );
 }
