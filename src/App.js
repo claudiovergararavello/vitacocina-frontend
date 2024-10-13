@@ -10,9 +10,8 @@ import Login from './Login/Login';
 import Favoritos from './Recetas/Favoritos';
 import Creacion from './Recetas/Creacion';
 import Buscador from './Recetas/Buscador';
-import Consejo1 from './Consejos/Consejo1';
-import Consejo2 from './Consejos/Consejo2';
-import Consejo3 from './Consejos/Consejo3';
+import FavoritosC from './Consejos/FavoritosC';
+import BuscadorC from './Consejos/BuscadorC';
 import Receta from './Recetas/Receta';
 
 function App() {
@@ -29,9 +28,8 @@ function App() {
             <Route path="buscador" element={<Buscador />} />
           </Route>
           <Route path="/consejos" element={<Consejos />}>
-            <Route path="Consejo1" element={<Consejo1 />} />
-            <Route path="Consejo2" element={<Consejo2 />} />
-            <Route path="Consejo3" element={<Consejo3 />} />
+            <Route path="FavoritosC" element={<FavoritosC />} />
+            <Route path="BuscadorC" element={<BuscadorC />} />
           </Route>
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/registrarse" element={<Registrarse />} />

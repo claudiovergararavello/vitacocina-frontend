@@ -158,9 +158,8 @@ function Header(){
               </span>
               {isConsejosDropdownOpen && (
                 <ul className="dropdown-menu">
-                  <li><NavLink to="/consejos/consejo1">Consejo número 1</NavLink></li>
-                  <li><NavLink to="/consejos/consejo2">Consejo número 2</NavLink></li>
-                  <li><NavLink to="/consejos/consejo3">Consejo número 3</NavLink></li>
+                  <li><NavLink to="/consejos/favoritosc">Favoritos</NavLink></li>
+                  <li><NavLink to="/consejos/buscadorc">Buscador</NavLink></li>
                 </ul>
               )}
             </li> 
@@ -173,9 +172,8 @@ function Header(){
               </span>
               {isConsejosDropdownOpen && (
                 <ul className="dropdown-menu">
-                  <li><NavLink to="/consejos/consejo1">Consejo número 1</NavLink></li>
-                  <li><NavLink to="/consejos/consejo2">Consejo número 2</NavLink></li>
-                  <li><NavLink to="/consejos/consejo3">Consejo número 3</NavLink></li>
+                  <li><NavLink to="/consejos/favoritosc">Favoritos</NavLink></li>
+                  <li><NavLink to="/consejos/buscadorc">Buscador</NavLink></li>
                 </ul>
               )}
             </li> 

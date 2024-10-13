@@ -1,7 +1,7 @@
 .inicio {
-    padding: 20px;
+  padding: 20px;
 }
-  
+
 .carrusel {
   display: flex;
   flex-direction: column;
@@ -13,6 +13,8 @@
   display: flex;
   gap: 20px;
   overflow: hidden;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .item {
@@ -22,6 +24,11 @@
   padding: 10px;
   border-radius: 8px;
   cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.item:hover {
+  transform: scale(1.05);
 }
 
 .imagen {
@@ -33,6 +40,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .boton-siguiente {
   margin-top: 10px;
   padding: 10px 20px;
@@ -46,4 +54,24 @@
 
 .boton-siguiente:hover {
   background-color: #333;
+}
+
+/* Responsividad */
+
+/* Pantallas medianas (tablets) */
+@media (max-width: 768px) {
+  .item {
+    width: calc(50% - 20px); /* Ajustar a dos elementos por fila */
+  }
+}
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+  .item {
+    width: calc(100% - 20px); /* Ajustar a un elemento por fila */
+  }
+
+  .carrusel {
+    gap: 10px; /* Reducir espacio entre elementos */
+  }
 }
