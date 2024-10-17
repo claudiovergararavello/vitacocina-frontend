@@ -11,6 +11,7 @@ function Header(){
   // Paths
   const isRecetasActive = location.pathname.startsWith("/recetas");
   const isConsejosActive = location.pathname.startsWith("/consejos");
+  const isAdministracionActive = location.pathname.startsWith("/administracion");
 
   // Estados
   const [isMobile, setIsMobile] = useState(false);
@@ -19,6 +20,7 @@ function Header(){
   const [isMenuOpen, setMenuOpen] = useState(false);
   const recetasMenuRef = useRef(null);
   const consejosMenuRef = useRef(null);
+  const AdministracionMenuRef = useRef(null);
 
   // Modal Login
   const openLoginModal = () => setLoginModalOpen(true);
@@ -34,6 +36,7 @@ function Header(){
   // Toggle Recetas
   const toggleRecetasDropdown = (e) => {
     e.preventDefault()
+      setAdministracionDropdownOpen(false)
       setConsejosDropdownOpen(false);
       setRecetasDropdownOpen(!isRecetasDropdownOpen);
     
@@ -41,9 +44,19 @@ function Header(){
   // Toggle Consejos
   const toggleConsejosDropdown = (e) => {
     e.preventDefault();
-   
+      setAdministracionDropdownOpen(false)
       setRecetasDropdownOpen(false);
       setConsejosDropdownOpen(!isConsejosDropdownOpen);
+    
+  };
+
+   // Toggle Administracion
+   const toggleAdministracionDropdown = (e) => {
+    e.preventDefault();
+   
+      setRecetasDropdownOpen(false);
+      setConsejosDropdownOpen(false);
+      setAdministracionDropdownOpen(!isAdministracionDropdownOpen)
     
   };
 
@@ -56,13 +69,16 @@ function Header(){
       if(consejosMenuRef.current && !consejosMenuRef.current.contains(event.target)){
         setConsejosDropdownOpen(false);
       }
+      if(AdministracionMenuRef.current && !AdministracionMenuRef.current.contains(event.target)){
+        setAdministracionDropdownOpen(false);
+      }
     };
   
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [recetasMenuRef, consejosMenuRef]);
+  }, [recetasMenuRef, consejosMenuRef, AdministracionMenuRef]);
 
   // Funcion que reconoce el tamaño del dispositivo
   useEffect(() => {
@@ -77,6 +93,7 @@ function Header(){
   // Dropdown Recetas
   const [isRecetasDropdownOpen, setRecetasDropdownOpen] = useState(false);
   const handleRecetasMouseEnter = () => {
+    setAdministracionDropdownOpen(false);
     setConsejosDropdownOpen(false);
     setRecetasDropdownOpen(true);
   };
@@ -85,10 +102,20 @@ function Header(){
   // Dropdown Consejos
   const [isConsejosDropdownOpen, setConsejosDropdownOpen] = useState(false);
   const handleConsejosMouseEnter = () => {
+    setAdministracionDropdownOpen(false);
     setRecetasDropdownOpen(false);
     setConsejosDropdownOpen(true);
   };
   const handleConsejosMouseLeave = () => setConsejosDropdownOpen(false);
+
+  // Dropdown Administracion
+  const [isAdministracionDropdownOpen, setAdministracionDropdownOpen] = useState(false);
+  const handleAdministracionMouseEnter = () => {
+    setRecetasDropdownOpen(false);
+    setConsejosDropdownOpen(false);
+    setAdministracionDropdownOpen(true);
+  };
+  const handleAdministracionMouseLeave = () => setConsejosDropdownOpen(false);
 
   return (
     <>
@@ -179,11 +206,37 @@ function Header(){
             </li> 
             )}
 
-            <li>
-              <NavLink to="/nosotros" className={({ isActive }) => (isActive ? 'header-nav activo' : 'header-nav')}>
-                NOSOTROS
-              </NavLink>
-            </li>
+            
+            {/* Mobile */}
+            {isMobile && (
+              <li onClick={toggleAdministracionDropdown} ref={AdministracionMenuRef}>
+                <span className={`header-nav ${isAdministracionActive ? 'activo' : ''}`}>
+                ADMINISTRACIÓN
+                </span>
+                {isAdministracionDropdownOpen && (
+                  <ul className="dropdown-menu">
+                    <li><NavLink to="/consejos/favoritosc">Usuario</NavLink></li>
+                    <li><NavLink to="/recetas">Recetas</NavLink></li>
+                    <li><NavLink to="/consejos">Consejos</NavLink></li>
+                  </ul>
+                )}
+              </li> 
+            )}
+            {/* PC */}
+            {!isMobile && (
+              <li onMouseEnter={handleAdministracionMouseEnter} onMouseLeave={handleAdministracionMouseLeave}>
+                <span className={`header-nav ${isAdministracionActive ? 'activo' : ''}`}>
+                ADMINISTRACIÓN
+                </span>
+                {isAdministracionDropdownOpen && (
+                  <ul className="dropdown-menu">
+                    <li><NavLink to="/consejos/favoritosc">Usuario</NavLink></li>
+                    <li><NavLink to="/recetas/creacion">Recetas</NavLink></li>
+                    <li><NavLink to="/consejos/creacionc">Consejos</NavLink></li>
+                  </ul>
+                )}
+              </li> 
+            )}
           </ul>
         </nav>
       </header>

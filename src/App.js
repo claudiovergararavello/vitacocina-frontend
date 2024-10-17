@@ -4,7 +4,7 @@ import Header from './Header/Header';
 import Inicio from './Inicio/Inicio';
 import Recetas from './Recetas/Recetas';
 import Consejos from './Consejos/Consejos';
-import Nosotros from './Nosotros/Nosotros';
+import Administrador from './Administrador/Administrador';
 import Registrarse from './Registrarse/Registrarse';
 import Login from './Login/Login';
 import Favoritos from './Recetas/Favoritos';
@@ -13,6 +13,7 @@ import Buscador from './Recetas/Buscador';
 import FavoritosC from './Consejos/FavoritosC';
 import BuscadorC from './Consejos/BuscadorC';
 import Receta from './Recetas/Receta';
+import CreacionC from './Consejos/CreacionC';
 
 function App() {
   return (
@@ -30,8 +31,9 @@ function App() {
           <Route path="/consejos" element={<Consejos />}>
             <Route path="FavoritosC" element={<FavoritosC />} />
             <Route path="BuscadorC" element={<BuscadorC />} />
+            <Route path="CreacionC" element={<CreacionC />} />
           </Route>
-          <Route path="/nosotros" element={<Nosotros />} />
+          <Route path="/administrador" element={<Administrador />} />
           <Route path="/registrarse" element={<Registrarse />} />
           <Route path="/login" element={<Login />} />
           <Route path="/receta" element={<Receta />} />

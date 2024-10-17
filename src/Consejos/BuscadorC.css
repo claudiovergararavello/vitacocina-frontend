@@ -32,6 +32,7 @@
   
   .buscador-consejos-filtro {
     margin-bottom: 20px;
+    margin-top: 15px;
   }
   
   .buscador-consejos-select {
@@ -44,6 +45,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
   }
   
   .consejo-item {

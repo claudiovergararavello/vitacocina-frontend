@@ -15,6 +15,7 @@
   overflow: hidden;
   justify-content: center;
   flex-wrap: wrap;
+  padding: 20px;
 }
 
 .item {
@@ -54,24 +55,4 @@
 
 .boton-siguiente:hover {
   background-color: #333;
-}
-
-/* Responsividad */
-
-/* Pantallas medianas (tablets) */
-@media (max-width: 768px) {
-  .item {
-    width: calc(50% - 20px); /* Ajustar a dos elementos por fila */
-  }
-}
-
-/* Pantallas pequeñas (móviles) */
-@media (max-width: 480px) {
-  .item {
-    width: calc(100% - 20px); /* Ajustar a un elemento por fila */
-  }
-
-  .carrusel {
-    gap: 10px; /* Reducir espacio entre elementos */
-  }
 }

@@ -3,21 +3,21 @@ import './Inicio.css';
 import { useNavigate } from 'react-router-dom';
 
 const recetas = [
-  { id: 1, titulo: 'Título', imagen: '', valoracion: 'Valoración' },
-  { id: 2, titulo: 'Título', imagen: '', valoracion: 'Valoración' },
-  { id: 3, titulo: 'Título', imagen: '', valoracion: 'Valoración' },
-  { id: 4, titulo: 'Título', imagen: '', valoracion: 'Valoración' },
-  { id: 5, titulo: 'Título', imagen: '', valoracion: 'Valoración' },
-  { id: 6, titulo: 'Título', imagen: '', valoracion: 'Valoración' },
+  { id: 1, titulo: 'Título', imagen: '', valoracion: 3  },
+  { id: 2, titulo: 'Título', imagen: '', valoracion: 1  },
+  { id: 3, titulo: 'Título', imagen: '', valoracion: 5  },
+  { id: 4, titulo: 'Título', imagen: '', valoracion: 3  },
+  { id: 5, titulo: 'Título', imagen: '', valoracion: 5  },
+  { id: 6, titulo: 'Título', imagen: '', valoracion: 2  },
 ];
 
 const consejos = [
-  { id: 1, titulo: 'Consejo', imagen: '', valoracion: 'Valoración' },
-  { id: 2, titulo: 'Consejo', imagen: '', valoracion: 'Valoración' },
-  { id: 3, titulo: 'Consejo', imagen: '', valoracion: 'Valoración' },
-  { id: 4, titulo: 'Consejo', imagen: '', valoracion: 'Valoración' },
-  { id: 5, titulo: 'Consejo', imagen: '', valoracion: 'Valoración' },
-  { id: 6, titulo: 'Consejo', imagen: '', valoracion: 'Valoración' },
+  { id: 1, titulo: 'Consejo', imagen: '', valoracion: 4  },
+  { id: 2, titulo: 'Consejo', imagen: '', valoracion: 4  },
+  { id: 3, titulo: 'Consejo', imagen: '', valoracion: 3  },
+  { id: 4, titulo: 'Consejo', imagen: '', valoracion: 1 },
+  { id: 5, titulo: 'Consejo', imagen: '', valoracion: 0  },
+  { id: 6, titulo: 'Consejo', imagen: '', valoracion: 5  },
 ];
 
 function Inicio() {
@@ -53,7 +53,9 @@ function Inicio() {
             <div className="item" key={receta.id} onClick={() => verReceta(receta.id)}>
               <h3>{receta.titulo}</h3>
               <div className="imagen">[Imagen]</div>
-              <p>{receta.valoracion}</p>
+              <div className="receta-valoracion">
+                Valoración: {"★".repeat(receta.valoracion)}
+              </div>
             </div>
           ))}
         </div>
@@ -67,7 +69,9 @@ function Inicio() {
             <div className="item" key={consejo.id}>
               <h3>{consejo.titulo}</h3>
               <div className="imagen">[Imagen]</div>
-              <p>{consejo.valoracion}</p>
+              <div className="consejo-valoracion">
+                Valoración: {"★".repeat(consejo.valoracion)}
+              </div>
             </div>
           ))}
         </div>

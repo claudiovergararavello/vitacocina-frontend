@@ -38,14 +38,13 @@ function BuscadorConsejos() {
 
   return (
     <div className="buscador-consejos-container">
-      <div className="buscador-consejos-barra">
-        <input
-          value={busqueda}
-          placeholder="ej: Consejo saludable"
-          className="buscador-consejos-input"
-          onChange={handleChange}
-        />
-        <button className="button-envio">Buscar</button>
+      <div style={{display: 'flex', justifyContent: 'center'}}>
+        <div style={{display: 'flex', alignItems: 'center'}}>
+          <input value={busqueda} placeholder="ej: Consejo saludable" className='buscador' onChange={handleChange}/>
+        </div>
+        <div style={{display: 'flex', alignItems: 'center'}}>
+          <button className='button-envio'>Buscar</button>
+        </div>
       </div>
       <div className="buscador-consejos-filtro">
         <label htmlFor="valoracion">Filtrar por valoración: </label>
