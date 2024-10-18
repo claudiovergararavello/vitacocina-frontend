@@ -9,8 +9,8 @@ function FavoritosC() {
   useEffect(() => {
     // Simulación de los datos de consejos favoritos
     const consejosFavoritos = [
-      { id: 1, titulo: 'Consejo Favorito 1', descripcion: 'Descripción del consejo 1', imagen: '' },
-      { id: 2, titulo: 'Consejo Favorito 2', descripcion: 'Descripción del consejo 2', imagen: '' },
+      { id: 1, titulo: 'Consejo Favorito 1', descripcion: 'Descripción del consejo 1', valoracion: 5 },
+      { id: 2, titulo: 'Consejo Favorito 2', descripcion: 'Descripción del consejo 2', valoracion: 4 },
     ];
 
     // Actualizar el estado con los consejos favoritos cargados
@@ -20,13 +20,16 @@ function FavoritosC() {
   return (
     <div className="favoritos-container">
       <h2>Consejos Favoritos</h2>
-      <div className="favoritos-carrusel">
+      <div className="favoritos-lista">
         {favoritos.length > 0 ? (
           favoritos.map((consejo) => (
-            <div key={consejo.id} className="favorito-item">
-              <h3>{consejo.titulo}</h3>
-              <div className="imagen">[Imagen]</div>
-              <p>{consejo.descripcion}</p>
+            <div key={consejo.id} className="consejo-item">
+              <div className="consejo-titulo">{consejo.titulo}</div>
+              <div className="consejo-imagen">[Imagen]</div>
+              <div className="consejo-descripcion">{consejo.descripcion}</div>
+              <div className="consejo-valoracion">
+                Valoración: {"★".repeat(consejo.valoracion)}
+              </div>
             </div>
           ))
         ) : (
