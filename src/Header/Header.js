@@ -187,6 +187,7 @@ function Header(){
                 <ul className="dropdown-menu">
                   <li><NavLink to="/consejos/favoritosc">Favoritos</NavLink></li>
                   <li><NavLink to="/consejos/buscadorc">Buscador</NavLink></li>
+                  <li><NavLink to="/consejos/creacionc">Crear</NavLink></li>
                 </ul>
               )}
             </li> 
@@ -201,6 +202,7 @@ function Header(){
                 <ul className="dropdown-menu">
                   <li><NavLink to="/consejos/favoritosc">Favoritos</NavLink></li>
                   <li><NavLink to="/consejos/buscadorc">Buscador</NavLink></li>
+                  <li><NavLink to="/consejos/creacionc">Crear</NavLink></li>
                 </ul>
               )}
             </li> 
