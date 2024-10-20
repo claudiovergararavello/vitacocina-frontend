@@ -14,6 +14,7 @@ import FavoritosC from './Consejos/FavoritosC';
 import BuscadorC from './Consejos/BuscadorC';
 import Receta from './Recetas/Receta';
 import CreacionC from './Consejos/CreacionC';
+import CrearU from './Administrador/CrearU';
 
 function App() {
   return (
@@ -33,7 +34,9 @@ function App() {
             <Route path="BuscadorC" element={<BuscadorC />} />
             <Route path="CreacionC" element={<CreacionC />} />
           </Route>
-          <Route path="/administrador" element={<Administrador />} />
+          <Route path="/administrador" element={<Administrador />}>
+          <Route path="crearu" element={<CrearU />} />
+          </Route>
           <Route path="/registrarse" element={<Registrarse />} />
           <Route path="/login" element={<Login />} />
           <Route path="/receta" element={<Receta />} />

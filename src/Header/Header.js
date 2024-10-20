@@ -217,7 +217,7 @@ function Header(){
                 </span>
                 {isAdministracionDropdownOpen && (
                   <ul className="dropdown-menu">
-                    <li><NavLink to="/consejos/favoritosc">Usuario</NavLink></li>
+                    <li><NavLink to="/administrador/crearu">Usuario</NavLink></li>
                     <li><NavLink to="/recetas">Recetas</NavLink></li>
                     <li><NavLink to="/consejos">Consejos</NavLink></li>
                   </ul>
@@ -232,7 +232,7 @@ function Header(){
                 </span>
                 {isAdministracionDropdownOpen && (
                   <ul className="dropdown-menu">
-                    <li><NavLink to="/consejos/favoritosc">Usuario</NavLink></li>
+                    <li><NavLink to="/administrador/crearu">Usuario</NavLink></li>
                     <li><NavLink to="/recetas/creacion">Recetas</NavLink></li>
                     <li><NavLink to="/consejos/creacionc">Consejos</NavLink></li>
                   </ul>
