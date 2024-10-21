@@ -26,9 +26,9 @@ function CrearU({ onClose }) {
   };
 
   return (
-    <div className="modal-overlay">
-      <div className="modal-content">
-        <h2>Crear Usuario</h2>
+    <div className="">
+      <h2>Crear Usuario</h2>
+      <div className="" style={{display: 'flex', justifyContent: 'center'}}>
         <form onSubmit={handleSubmit} className="create-user-form">
           <div className="form-group">
             <label htmlFor="username">Nombre de Usuario</label>
@@ -91,7 +91,7 @@ function CrearU({ onClose }) {
 
           <button type="submit" className="btn-create">Crear Usuario</button>
         </form>
-        <button onClick={onClose} className="btn-close">Cerrar</button> {/* Botón para cerrar el formulario */}
+         {/* <button onClick={onClose} className="btn-close">Cerrar</button> */}
       </div>
     </div>
   );

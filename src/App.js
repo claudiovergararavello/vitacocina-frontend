@@ -13,8 +13,10 @@ import Buscador from './Recetas/Buscador';
 import FavoritosC from './Consejos/FavoritosC';
 import BuscadorC from './Consejos/BuscadorC';
 import Receta from './Recetas/Receta';
-import CreacionC from './Consejos/CreacionC';
+import CreacionC from './Administrador/CreacionC';
 import CrearU from './Administrador/CrearU';
+import CreacionR from './Administrador/CreacionR';
+import Consejo from './Consejos/Consejo';
 
 function App() {
   return (
@@ -32,14 +34,17 @@ function App() {
           <Route path="/consejos" element={<Consejos />}>
             <Route path="FavoritosC" element={<FavoritosC />} />
             <Route path="BuscadorC" element={<BuscadorC />} />
-            <Route path="CreacionC" element={<CreacionC />} />
+            {/**/}
           </Route>
           <Route path="/administrador" element={<Administrador />}>
-          <Route path="crearu" element={<CrearU />} />
+            <Route path="crearu" element={<CrearU />} />
+            <Route path="creacionc" element={<CreacionC />} />
+            <Route path="creacionr" element={<CreacionR />} />
           </Route>
           <Route path="/registrarse" element={<Registrarse />} />
           <Route path="/login" element={<Login />} />
           <Route path="/receta" element={<Receta />} />
+          <Route path="/consejo" element={<Consejo />} />
         </Routes>
       </div>
     </Router>

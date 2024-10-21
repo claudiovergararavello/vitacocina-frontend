@@ -43,7 +43,7 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 100%;
+    width: 50%;
 }
 
 .form-group {
@@ -61,7 +61,7 @@ h2 {
 .form-group input, .form-group select {
     width: 100%;
     padding: 8px;
-    border: 1px solid #000; /* Bordes negros */
+    border: 1px solid #8a8a8a; /* Bordes negros */
     border-radius: 4px;
     background-color: white; /* Fondo blanco */
     color: black; /* Texto negro */

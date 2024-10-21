@@ -11,7 +11,7 @@ function Header(){
   // Paths
   const isRecetasActive = location.pathname.startsWith("/recetas");
   const isConsejosActive = location.pathname.startsWith("/consejos");
-  const isAdministracionActive = location.pathname.startsWith("/administracion");
+  const isAdministracionActive = location.pathname.startsWith("/administrador");
 
   // Estados
   const [isMobile, setIsMobile] = useState(false);
@@ -115,7 +115,7 @@ function Header(){
     setConsejosDropdownOpen(false);
     setAdministracionDropdownOpen(true);
   };
-  const handleAdministracionMouseLeave = () => setConsejosDropdownOpen(false);
+  const handleAdministracionMouseLeave = () => setAdministracionDropdownOpen(false);
 
   return (
     <>
@@ -155,9 +155,9 @@ function Header(){
                 </span>
                 {isRecetasDropdownOpen && (
                   <ul className="dropdown-menu">
-                    <li><NavLink to="/recetas/favoritos">Recetas favoritas</NavLink></li>
-                    <li><NavLink to="/recetas/creacion">Publicar recetas</NavLink></li>
-                    <li><NavLink to="/recetas/buscador">Buscador de recetas</NavLink></li>
+                    <li><NavLink to="/recetas/favoritos">Recetas</NavLink></li>
+                    <li><NavLink to="/recetas/creacion">Publicar</NavLink></li>
+                    <li><NavLink to="/recetas/buscador">Buscador</NavLink></li>
                   </ul>
                 )}
               </li> 
@@ -170,9 +170,9 @@ function Header(){
                 </span>
                 {isRecetasDropdownOpen && (
                   <ul className="dropdown-menu">
-                    <li><NavLink to="/recetas/favoritos">Recetas favoritas</NavLink></li>
-                    <li><NavLink to="/recetas/creacion">Publicar recetas</NavLink></li>
-                    <li><NavLink to="/recetas/buscador">Buscador de recetas</NavLink></li>
+                    <li><NavLink to="/recetas/favoritos">Favoritas</NavLink></li>
+                    <li><NavLink to="/recetas/creacion">Publicar</NavLink></li>
+                    <li><NavLink to="/recetas/buscador">Buscador</NavLink></li>
                   </ul>
                 )}
               </li> 
@@ -187,7 +187,6 @@ function Header(){
                 <ul className="dropdown-menu">
                   <li><NavLink to="/consejos/favoritosc">Favoritos</NavLink></li>
                   <li><NavLink to="/consejos/buscadorc">Buscador</NavLink></li>
-                  <li><NavLink to="/consejos/creacionc">Crear</NavLink></li>
                 </ul>
               )}
             </li> 
@@ -202,7 +201,6 @@ function Header(){
                 <ul className="dropdown-menu">
                   <li><NavLink to="/consejos/favoritosc">Favoritos</NavLink></li>
                   <li><NavLink to="/consejos/buscadorc">Buscador</NavLink></li>
-                  <li><NavLink to="/consejos/creacionc">Crear</NavLink></li>
                 </ul>
               )}
             </li> 
@@ -218,8 +216,8 @@ function Header(){
                 {isAdministracionDropdownOpen && (
                   <ul className="dropdown-menu">
                     <li><NavLink to="/administrador/crearu">Usuario</NavLink></li>
-                    <li><NavLink to="/recetas">Recetas</NavLink></li>
-                    <li><NavLink to="/consejos">Consejos</NavLink></li>
+                    <li><NavLink to="/administrador/creacionr">Recetas</NavLink></li>
+                    <li><NavLink to="/administrador/creacionc">Consejos</NavLink></li>
                   </ul>
                 )}
               </li> 
@@ -233,8 +231,8 @@ function Header(){
                 {isAdministracionDropdownOpen && (
                   <ul className="dropdown-menu">
                     <li><NavLink to="/administrador/crearu">Usuario</NavLink></li>
-                    <li><NavLink to="/recetas/creacion">Recetas</NavLink></li>
-                    <li><NavLink to="/consejos/creacionc">Consejos</NavLink></li>
+                    <li><NavLink to="/administrador/creacionr">Recetas</NavLink></li>
+                    <li><NavLink to="/administrador/creacionc">Consejos</NavLink></li>
                   </ul>
                 )}
               </li> 

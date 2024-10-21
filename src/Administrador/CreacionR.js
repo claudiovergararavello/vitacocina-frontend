@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './Creacion.css';
+import './CreacionR.css';
 import axios from 'axios';
 
-function Creacion() {
+function CreacionR() {
   const [loggedIn, setLoggedIn] = useState(false); // Estado de autenticacion
   const [inputValue, setInputValue] = useState('');
   const [selectedItems, setSelectedItems] = useState([]);
@@ -268,20 +268,6 @@ function Creacion() {
       });
   };
 
-  if (!loggedIn) {
-    return (
-      <div className="contenedor-login">
-        <div className="login-box">
-          <h2>Para acceder a este contenido debes iniciar sesión</h2>
-          <button onClick={handleLogin} className="boton-login">Iniciar sesión</button>
-          <p>
-            <span>¿No tienes cuenta?</span> {/* El texto que está sobre el botón */}
-            <button onClick={handleLogin} className="boton-login">Regístrate</button>
-          </p>
-        </div>
-      </div>
-    );
-  }
   const AgregarRecetaNueva = (val) => {
     setReceta({
       nombre: '',
@@ -299,6 +285,22 @@ function Creacion() {
     setSelectedRecetaId(val);
   };
   
+
+  if (loggedIn) {
+    return (
+      <div className="contenedor-login">
+        <div className="login-box">
+          <h2>Para acceder a este contenido debes iniciar sesión</h2>
+          <button onClick={handleLogin} className="boton-login">Iniciar sesión</button>
+          <p>
+            <span>¿No tienes cuenta?</span> {/* El texto que está sobre el botón */}
+            <button onClick={handleLogin} className="boton-login">Regístrate</button>
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   if (loading) {
     return <div style={{display: "flex", justifyContent: "center", marginTop: "40px"}}><div className="loader"></div></div>;
   }
@@ -470,4 +472,4 @@ function Creacion() {
   );
 }
 
-export default Creacion;
+export default CreacionR;

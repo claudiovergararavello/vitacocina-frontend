@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './FavoritosC.css'; // Asegúrate de crear y vincular este archivo CSS
 
 function FavoritosC() {
+  const [loggedIn, setLoggedIn] = useState(false); // Estado de autenticación
+
   // Estado para almacenar los consejos favoritos
   const [favoritos, setFavoritos] = useState([]);
 
@@ -16,6 +18,27 @@ function FavoritosC() {
     // Actualizar el estado con los consejos favoritos cargados
     setFavoritos(consejosFavoritos);
   }, []);
+
+  // Simulación de login
+  const handleLogin = () => {
+    setLoggedIn(true);
+  };
+
+
+  if (!loggedIn) {
+    return (
+      <div className="contenedor-login">
+        <div className="login-box">
+          <h2>Para acceder a este contenido debes iniciar sesión</h2>
+          <button onClick={handleLogin} className="boton-login">Iniciar sesión</button>
+          <p>
+            <span>¿No tienes cuenta?</span> {/* El texto que está sobre el botón */}
+            <button onClick={handleLogin} className="boton-login">Regístrate</button>
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="favoritos-container">
