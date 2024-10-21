@@ -1,19 +1,63 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import './Consejos.css';
+import axios from 'axios';
 
 function Consejo() {
     // Datos
     const location = useLocation();
     const { name, descripcion, id  } = location.state || {}; 
     const [rating, setRating] = useState(0);
-
+    const [consejo, setConsejo] = useState({
+        nombre: '',
+        descripcion: '',
+        creador: 'usuariox',
+        contenido: '',
+        foto: 'none',
+        valoracion: 0,
+        consejo: ''
+      });
     // Valoracion
     const handleClick = (value) => {
         setRating(value);
     };
 
+    const [loading, setLoading] = useState(true); // Estado para controlar el loading    
+    // useEffect para hacer la llamada a la API cuando el componente se monta
+    useEffect(() => {
+        console.log("Recibido ID:", id);  // Verificar si el ID está llegando correctamente
+        if (id !== undefined && id >= 0) {
+            setLoading(true); // Inicia el loading
+            // Configuración de la solicitud
+            let config = {
+                method: 'get',
+                maxBodyLength: Infinity,
+                url: 'https://iaugmt4hp4.execute-api.sa-east-1.amazonaws.com/stage_1/consejos?consejo='+id,
+                headers: {}
+            };
+
+            // Hacer la solicitud
+            axios.request(config)
+            .then((response) => {
+                // Actualizar el estado con los datos recibidos de la API
+                setConsejo(response.data);
+                console.log(JSON.stringify(response.data));
+            })
+            .catch((error) => {
+                console.error(error);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+        }
+    }, [id]);
+
+    // Si el contenido aún está cargando, muestra el mensaje de loading
+    if (loading) {
+        return <div style={{display: "flex", justifyContent: "center", marginTop: "40px"}}><div className="loader"></div></div>;
+    }
+    
 
     return (
         <div className='contenedor_receta'>
@@ -31,9 +75,9 @@ function Consejo() {
                 </div>
                 {/* Informacion */}
                 <div className='contenedor_informacion'>
-                    <h1>{name} {id}</h1>
+                    <h1>{consejo.nombre}</h1>
                     <hr />
-                    <p>{descripcion}</p>
+                    <p>{consejo.descripcion}</p>
                     <br />
                     {/* Valoracion */}
                     <div className='contenedor_valoracion'>
@@ -84,6 +128,7 @@ function Consejo() {
             <div className='contenedor_ip'>
                 <div className='clase-preparacion'>
                     <p>Pasos</p>
+                    {consejo.consejo}
                 </div>
                 {/*<div className='clase-preparacion'>
                     <p>Comentarios</p>
