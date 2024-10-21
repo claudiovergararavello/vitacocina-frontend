@@ -304,9 +304,9 @@ function Creacion() {
   }
 
   return (
-    <div className="contenedor-principal" style={{ display: 'flex', padding: '20px' }}>
+    <div className="contenedor-principal">
       {/* Sidebar */}
-      <div className="sidebar" style={{ flex: '1', marginRight: '20px', border: '1px solid #ccc', padding: '20px', borderRadius: '15px' }}>
+      <div className="sidebar">
         <button className="boton-agregar" onClick={() => AgregarRecetaNueva(null)} style={{ marginBottom: '10px' }}>
           + Agregar
         </button>

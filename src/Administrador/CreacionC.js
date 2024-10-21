@@ -251,9 +251,9 @@ function CreacionC() {
   }
 
   return (
-    <div className="contenedor-principal" style={{ display: 'flex', padding: '20px' }}>
+    <div className="contenedor-principal">
     {/* Sidebar */}
-    <div className="sidebar" style={{ flex: '1', marginRight: '20px', border: '1px solid #ccc', padding: '20px', borderRadius: '15px' }}>
+    <div className="sidebar">
       <button className="boton-agregar" onClick={() => AgregarConsejoNuevo(null)} style={{ marginBottom: '10px' }}>
         + Agregar
       </button>
@@ -274,7 +274,7 @@ function CreacionC() {
       </div>
     </div>
     {/* Formulario */}
-    <div className="formulario-consejo" style={{ flex: '2', border: '1px solid #ccc', padding: '20px', margin: '0' }}>
+    <div className="formulario-consejo">
     <h2>{selectedConsejoId ? 'Editar consejo' : 'Crea un nuevo consejo'}</h2>
     <div>
       {/* Mostrar loading durante el proceso de creación o actualización */}
