@@ -158,7 +158,7 @@ function CreacionR() {
       categoria: '',
       duracion: '',
       nivel: '',
-      foto: 'none',
+      foto: null,
       creador: 'usuariox',
       ID: ''
     });
@@ -256,7 +256,7 @@ function CreacionR() {
             categoria: '',
             duracion: '',
             nivel: '',
-            foto: 'none',
+            foto: null,
             creador: 'usuariox',
             ID: ''
           });
@@ -268,25 +268,7 @@ function CreacionR() {
       });
   };
 
-  const AgregarRecetaNueva = (val) => {
-    setReceta({
-      nombre: '',
-      descripcion: '',
-      ingredientes: [],
-      preparacion: '',
-      categoria: '',
-      duracion: '',
-      nivel: '',
-      foto: 'none',
-      creador: 'usuariox',
-      ID: ''
-    });
-    setSelectedItems([]);
-    setSelectedRecetaId(val);
-  };
-  
-
-  if (loggedIn) {
+  if (!loggedIn) {
     return (
       <div className="contenedor-login">
         <div className="login-box">
@@ -300,15 +282,31 @@ function CreacionR() {
       </div>
     );
   }
-
+  const AgregarRecetaNueva = (val) => {
+    setReceta({
+      nombre: '',
+      descripcion: '',
+      ingredientes: [],
+      preparacion: '',
+      categoria: '',
+      duracion: '',
+      nivel: '',
+      foto: null,
+      creador: 'usuariox',
+      ID: ''
+    });
+    setSelectedItems([]);
+    setSelectedRecetaId(val);
+  };
+  
   if (loading) {
     return <div style={{display: "flex", justifyContent: "center", marginTop: "40px"}}><div className="loader"></div></div>;
   }
 
   return (
-    <div className="contenedor-principal" style={{ display: 'flex', padding: '20px' }}>
+    <div className="contenedor-principal">
       {/* Sidebar */}
-      <div className="sidebar" style={{ flex: '1', marginRight: '20px', border: '1px solid #ccc', padding: '20px', borderRadius: '15px' }}>
+      <div className="sidebar">
         <button className="boton-agregar" onClick={() => AgregarRecetaNueva(null)} style={{ marginBottom: '10px' }}>
           + Agregar
         </button>
