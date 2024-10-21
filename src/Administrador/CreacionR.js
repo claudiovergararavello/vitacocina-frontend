@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './Creacion.css';
+import './CreacionR.css';
 import axios from 'axios';
 
-function Creacion() {
+function CreacionR() {
   const [loggedIn, setLoggedIn] = useState(false); // Estado de autenticacion
   const [inputValue, setInputValue] = useState('');
   const [selectedItems, setSelectedItems] = useState([]);
@@ -158,7 +158,7 @@ function Creacion() {
       categoria: '',
       duracion: '',
       nivel: '',
-      foto: null,
+      foto: 'none',
       creador: 'usuariox',
       ID: ''
     });
@@ -256,7 +256,7 @@ function Creacion() {
             categoria: '',
             duracion: '',
             nivel: '',
-            foto: null,
+            foto: 'none',
             creador: 'usuariox',
             ID: ''
           });
@@ -268,7 +268,25 @@ function Creacion() {
       });
   };
 
-  if (!loggedIn) {
+  const AgregarRecetaNueva = (val) => {
+    setReceta({
+      nombre: '',
+      descripcion: '',
+      ingredientes: [],
+      preparacion: '',
+      categoria: '',
+      duracion: '',
+      nivel: '',
+      foto: 'none',
+      creador: 'usuariox',
+      ID: ''
+    });
+    setSelectedItems([]);
+    setSelectedRecetaId(val);
+  };
+  
+
+  if (loggedIn) {
     return (
       <div className="contenedor-login">
         <div className="login-box">
@@ -282,23 +300,7 @@ function Creacion() {
       </div>
     );
   }
-  const AgregarRecetaNueva = (val) => {
-    setReceta({
-      nombre: '',
-      descripcion: '',
-      ingredientes: [],
-      preparacion: '',
-      categoria: '',
-      duracion: '',
-      nivel: '',
-      foto: null,
-      creador: 'usuariox',
-      ID: ''
-    });
-    setSelectedItems([]);
-    setSelectedRecetaId(val);
-  };
-  
+
   if (loading) {
     return <div style={{display: "flex", justifyContent: "center", marginTop: "40px"}}><div className="loader"></div></div>;
   }
@@ -470,4 +472,4 @@ function Creacion() {
   );
 }
 
-export default Creacion;
+export default CreacionR;

@@ -1,12 +1,59 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import './Recetas.css';
+import axios from 'axios';
 
 function Receta() {
     // Datos
     const location = useLocation();
-    const { name, descripcion, id  } = location.state || {}; 
+    const { id } = location.state || {};
+    const [receta, setReceta] = useState({
+        nombre: '',
+        descripcion: '',
+        ingredientes: [], // Lista de ingredientes
+        preparacion: '',
+        categoria: '',
+        duracion: '',
+        nivel: '',
+        foto: 'none',
+        creador: 'admin'
+      });
+
+    const [loading, setLoading] = useState(true); // Estado para controlar el loading    
+    // useEffect para hacer la llamada a la API cuando el componente se monta
+    useEffect(() => {
+        console.log("Recibido ID:", id);  // Verificar si el ID está llegando correctamente
+        if (id !== undefined && id >= 0) {
+            setLoading(true); // Inicia el loading
+            // Configuración de la solicitud
+            let config = {
+                method: 'get',
+                maxBodyLength: Infinity,
+                url: 'https://iaugmt4hp4.execute-api.sa-east-1.amazonaws.com/stage_1/recetas?receta='+id,
+                headers: {}
+            };
+
+            // Hacer la solicitud
+            axios.request(config)
+            .then((response) => {
+                // Actualizar el estado con los datos recibidos de la API
+                setReceta(response.data);
+                console.log(JSON.stringify(response.data));
+            })
+            .catch((error) => {
+                console.error(error);
+            })
+            .finally(() => {
+                // Fake time
+                setTimeout(() => {
+                    setLoading(false);
+                }, 1000);
+            });
+        }
+    }, [id]);
+      
+   
     const [rating, setRating] = useState(0);
 
     // Valoracion
@@ -30,6 +77,11 @@ function Receta() {
         }
     };
 
+    // Si el contenido aún está cargando, muestra el mensaje de loading
+    if (loading) {
+        return <div style={{display: "flex", justifyContent: "center", marginTop: "40px"}}><div className="loader"></div></div>;
+    }
+    
     return (
         <div className='contenedor_receta'>
             <div className='contenedor_principal'>
@@ -46,9 +98,9 @@ function Receta() {
                 </div>
                 {/* Informacion */}
                 <div className='contenedor_informacion'>
-                    <h1>{name} {id}</h1>
+                    <h1>{receta.nombre}</h1>
                     <hr />
-                    <p>{descripcion}</p>
+                    <p>{receta.descripcion}</p>
                     <br />
                     {/* Valoracion */}
                     <div className='contenedor_valoracion'>
@@ -93,15 +145,23 @@ function Receta() {
             {/* Ingredientes/Preparacion */}
             <div className="contenedor_linea">
                 <div className="linea"></div>
-                <h1>¿Comó preparar {name}?</h1>
+                <h1>¿Comó preparar {receta.nombre}?</h1>
                 <div className="linea"></div>
             </div>
             <div className='contenedor_ip'>
                 <div className='clase-preparacion'>
                     <p>Ingredientes</p>
+                    {receta.ingredientes && receta.ingredientes.length > 0 && (
+                    <ul style={{ textAlign: 'justify' }}>
+                        {receta.ingredientes.map((ingrediente, index) => (
+                        <li key={index}>{ingrediente}</li>
+                        ))}
+                    </ul>
+                    )}
                 </div>
                 <div className='clase-preparacion'>
                     <p>Preparación</p>
+                    {receta.preparacion}
                 </div>
             </div>
             {/* Comentarios */}

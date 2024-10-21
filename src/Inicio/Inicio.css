@@ -1,7 +1,7 @@
 .inicio {
-    padding: 20px;
+  padding: 20px;
 }
-  
+
 .carrusel {
   display: flex;
   flex-direction: column;
@@ -13,6 +13,9 @@
   display: flex;
   gap: 20px;
   overflow: hidden;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
 }
 
 .item {
@@ -22,6 +25,11 @@
   padding: 10px;
   border-radius: 8px;
   cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.item:hover {
+  transform: scale(1.05);
 }
 
 .imagen {
@@ -33,6 +41,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .boton-siguiente {
   margin-top: 10px;
   padding: 10px 20px;

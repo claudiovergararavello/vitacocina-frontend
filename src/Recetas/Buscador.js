@@ -6,25 +6,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const recetas = [
-  { id: 1, titulo: 'Título 1', imagen: '', valoracion: 'Valoración' },
-  { id: 2, titulo: 'Título 2', imagen: '', valoracion: 'Valoración' },
-  { id: 3, titulo: 'Título 3', imagen: '', valoracion: 'Valoración' },
-  { id: 4, titulo: 'Título 4', imagen: '', valoracion: 'Valoración' },
-  { id: 5, titulo: 'Título 5', imagen: '', valoracion: 'Valoración' },
-  { id: 6, titulo: 'Título 6', imagen: '', valoracion: 'Valoración' },
-  { id: 7, titulo: 'Título 7', imagen: '', valoracion: 'Valoración' },
-  { id: 8, titulo: 'Título 8', imagen: '', valoracion: 'Valoración' },
-  { id: 9, titulo: 'Título 9', imagen: '', valoracion: 'Valoración' },
-  { id: 10, titulo: 'Título 10', imagen: '', valoracion: 'Valoración' },
-  { id: 11, titulo: 'Título 11', imagen: '', valoracion: 'Valoración' },
-  { id: 12, titulo: 'Título 12', imagen: '', valoracion: 'Valoración' },
-  { id: 13, titulo: 'Título 13', imagen: '', valoracion: 'Valoración' },
-  { id: 14, titulo: 'Título 14', imagen: '', valoracion: 'Valoración' },
-  { id: 15, titulo: 'Título 15', imagen: '', valoracion: 'Valoración' },
-  { id: 16, titulo: 'Título 16', imagen: '', valoracion: 'Valoración' },
-  { id: 17, titulo: 'Título 17', imagen: '', valoracion: 'Valoración' },
-  { id: 18, titulo: 'Título 18', imagen: '', valoracion: 'Valoración' },
-  { id: 19, titulo: 'Título 19', imagen: '', valoracion: 'Valoración' },
+  { id: 1, titulo: 'Título 1', imagen: '', valoracion: 2 },
+  { id: 2, titulo: 'Título 2', imagen: '', valoracion: 2 },
+  { id: 3, titulo: 'Título 3', imagen: '', valoracion: 2 },
+  { id: 4, titulo: 'Título 4', imagen: '', valoracion: 2 },
+  { id: 5, titulo: 'Título 5', imagen: '', valoracion: 2 },
+  { id: 6, titulo: 'Título 6', imagen: '', valoracion: 2 },
+  { id: 7, titulo: 'Título 7', imagen: '', valoracion: 2 },
+  { id: 8, titulo: 'Título 8', imagen: '', valoracion: 2 },
+  { id: 9, titulo: 'Título 9', imagen: '', valoracion: 2 },
+  { id: 10, titulo: 'Título 10', imagen: '', valoracion: 2 },
+  { id: 11, titulo: 'Título 11', imagen: '', valoracion: 2 },
+  { id: 12, titulo: 'Título 12', imagen: '', valoracion: 2 },
+  { id: 13, titulo: 'Título 13', imagen: '', valoracion: 2 },
+  { id: 14, titulo: 'Título 14', imagen: '', valoracion: 2 },
+  { id: 15, titulo: 'Título 15', imagen: '', valoracion: 2 },
+  { id: 16, titulo: 'Título 16', imagen: '', valoracion: 2 },
+  { id: 17, titulo: 'Título 17', imagen: '', valoracion: 2 },
+  { id: 18, titulo: 'Título 18', imagen: '', valoracion: 2 },
+  { id: 19, titulo: 'Título 19', imagen: '', valoracion: 2 },
 ];
 function Buscador() {
   const navigate = useNavigate();
@@ -109,9 +109,13 @@ function Buscador() {
 
   return (
     <div style={{paddingBottom: '10px'}}>
-      <div>
-        <input value={busqueda} placeholder="ej: porotos con riendas" className='buscador' onChange={handleChange}/>
-        <button className='button-envio'>Buscar</button>
+      <div style={{marginTop: '15px', display: 'flex', justifyContent: 'center'}}>
+        <div style={{display: 'flex', alignItems: 'center'}}>
+          <input value={busqueda} placeholder="ej: porotos con riendas" className='buscador' onChange={handleChange}/>
+        </div>
+        <div style={{display: 'flex', alignItems: 'center'}}>
+          <button className='button-envio'>Buscar</button>
+        </div>
       </div>
       <div style={{marginTop: '20px'}}>
         <div className='contenedor-filtros'>
@@ -143,8 +147,8 @@ function Buscador() {
             </select>
           </div>
         </div>
-        <div style={{display: 'flex', justifyContent:'center', gap: '10px'}}>
-          <div>
+        <div style={{display: 'flex', justifyContent:'center', gap: '10px', marginTop: '15px'}}>
+          <div style={{display: 'flex', alignItems: 'center'}}>
             <button className='button-envio'>Ordenar</button>
           </div>
           <div>
@@ -162,7 +166,9 @@ function Buscador() {
             <div className="receta-item" key={receta.id} onClick={() => verReceta(receta.id)}>
               <h3>{receta.titulo}</h3>
               <div className="receta-imagen">[Imagen]</div>
-              <p>{receta.valoracion}</p>
+              <div className="receta-valoracion">
+                Valoración: {"★".repeat(receta.valoracion)}
+              </div>
             </div>
           ))}
         </div>

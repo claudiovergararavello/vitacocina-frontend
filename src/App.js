@@ -4,16 +4,19 @@ import Header from './Header/Header';
 import Inicio from './Inicio/Inicio';
 import Recetas from './Recetas/Recetas';
 import Consejos from './Consejos/Consejos';
-import Nosotros from './Nosotros/Nosotros';
+import Administrador from './Administrador/Administrador';
 import Registrarse from './Registrarse/Registrarse';
 import Login from './Login/Login';
 import Favoritos from './Recetas/Favoritos';
 import Creacion from './Recetas/Creacion';
 import Buscador from './Recetas/Buscador';
-import Consejo1 from './Consejos/Consejo1';
-import Consejo2 from './Consejos/Consejo2';
-import Consejo3 from './Consejos/Consejo3';
+import FavoritosC from './Consejos/FavoritosC';
+import BuscadorC from './Consejos/BuscadorC';
 import Receta from './Recetas/Receta';
+import CreacionC from './Administrador/CreacionC';
+import CrearU from './Administrador/CrearU';
+import CreacionR from './Administrador/CreacionR';
+import Consejo from './Consejos/Consejo';
 
 function App() {
   return (
@@ -29,14 +32,19 @@ function App() {
             <Route path="buscador" element={<Buscador />} />
           </Route>
           <Route path="/consejos" element={<Consejos />}>
-            <Route path="Consejo1" element={<Consejo1 />} />
-            <Route path="Consejo2" element={<Consejo2 />} />
-            <Route path="Consejo3" element={<Consejo3 />} />
+            <Route path="FavoritosC" element={<FavoritosC />} />
+            <Route path="BuscadorC" element={<BuscadorC />} />
+            {/**/}
           </Route>
-          <Route path="/nosotros" element={<Nosotros />} />
+          <Route path="/administrador" element={<Administrador />}>
+            <Route path="crearu" element={<CrearU />} />
+            <Route path="creacionc" element={<CreacionC />} />
+            <Route path="creacionr" element={<CreacionR />} />
+          </Route>
           <Route path="/registrarse" element={<Registrarse />} />
           <Route path="/login" element={<Login />} />
           <Route path="/receta" element={<Receta />} />
+          <Route path="/consejo" element={<Consejo />} />
         </Routes>
       </div>
     </Router>

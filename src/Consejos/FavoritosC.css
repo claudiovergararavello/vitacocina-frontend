@@ -1,0 +1,48 @@
+.favoritos-container {
+    padding: 20px;
+  }
+  
+  .favoritos-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .favorito-item {
+    width: 200px;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .consejo-titulo {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .consejo-imagen {
+    width: 100%;
+    height: 100px;
+    background-color: #eaeaea;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .consejo-descripcion {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    color: #666;
+  }
+  
+  .consejo-valoracion {
+    font-size: 1.1em;
+    color: #333;
+  }
+  
