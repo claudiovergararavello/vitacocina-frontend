@@ -158,7 +158,7 @@ function CreacionR() {
       categoria: '',
       duracion: '',
       nivel: '',
-      foto: null,
+      foto: 'none',
       creador: 'usuariox',
       ID: ''
     });
@@ -256,7 +256,7 @@ function CreacionR() {
             categoria: '',
             duracion: '',
             nivel: '',
-            foto: null,
+            foto: 'none',
             creador: 'usuariox',
             ID: ''
           });
@@ -277,7 +277,7 @@ function CreacionR() {
       categoria: '',
       duracion: '',
       nivel: '',
-      foto: null,
+      foto: 'none',
       creador: 'usuariox',
       ID: ''
     });

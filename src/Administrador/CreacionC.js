@@ -16,7 +16,7 @@ function CreacionC() {
     descripcion: '',
     creador: 'usuariox',
     contenido: '',
-    foto: null,
+    foto: 'none',
     valoracion: 0,
     consejo: ''
   });
@@ -150,7 +150,7 @@ function CreacionC() {
       descripcion: '',
       creador: 'usuariox',
       contenido: '',
-      foto: null,
+      foto: 'none',
       valoracion: 0,
       consejo: ''
     });
@@ -206,7 +206,7 @@ function CreacionC() {
             descripcion: '',
             creador: 'usuariox',
             contenido: '',
-            foto: null,
+            foto: 'none',
             valoracion: 0,
             consejo: ''
           });
@@ -224,7 +224,7 @@ function CreacionC() {
       descripcion: '',
       creador: 'usuariox',
       contenido: '',
-      foto: null,
+      foto: 'none',
       valoracion: 0,
       consejo: ''
     });
@@ -284,11 +284,11 @@ function CreacionC() {
     </div>
       <form onSubmit={handleSubmit} style={{marginTop: '30px'}}>
         <div className="campo">
-          <label htmlFor="titulo">Título del consejo:</label>
+          <label htmlFor="nombre">Nombre del consejo:</label>
           <input
             type="text"
-            id="titulo"
-            name="titulo"
+            id="nombre"
+            name="nombre"
             value={consejo.nombre}
             onChange={handleInputChange}
             required
@@ -306,10 +306,10 @@ function CreacionC() {
           ></textarea>
         </div>
         <div className="campo">
-          <label htmlFor="contenido">Contenido:</label>
+          <label htmlFor="consejo">Contenido:</label>
           <textarea
-            id="contenido"
-            name="contenido"
+            id="consejo"
+            name="consejo"
             value={consejo.consejo}
             onChange={handleInputChange}
             rows="4"
