@@ -45,10 +45,7 @@ function Receta() {
                 console.error(error);
             })
             .finally(() => {
-                // Fake time
-                setTimeout(() => {
-                    setLoading(false);
-                }, 1000);
+                setLoading(false);
             });
         }
     }, [id]);

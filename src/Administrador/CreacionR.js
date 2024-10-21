@@ -326,7 +326,6 @@ function CreacionR() {
         </ul>
         </div>
       </div>
-
       {/* Formulario */}
       <div className="formulario-receta" style={{ flex: '2', border: '1px solid #ccc', padding: '20px', margin: '0' }}>
         <h2>{selectedRecetaId ? 'Editar receta' : 'Crea una nueva receta'}</h2>

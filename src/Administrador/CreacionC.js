@@ -231,7 +231,7 @@ function CreacionC() {
     setSelectedConsejoId(val);
   };
 
-  if (loggedIn) {
+  if (!loggedIn) {
     return (
       <div className="contenedor-login">
         <div className="login-box">
@@ -253,97 +253,97 @@ function CreacionC() {
   return (
     <div className="contenedor-principal">
     {/* Sidebar */}
-    <div className="sidebar">
-      <button className="boton-agregar" onClick={() => AgregarConsejoNuevo(null)} style={{ marginBottom: '10px' }}>
-        + Agregar
-      </button>
-      <div className="lista-recetas" style={{padding: "10px"}}>
-        <h3>Listado de consejos</h3>
-        <ul style={{ listStyle: 'none', padding: '0' }}>
-        {consejos.map((rec, index) => (
-          <li key={rec.ID || index} style={{ marginBottom: '10px', borderBottom: '1px solid #ccc', paddingBottom: '10px', display: 'flex', justifyContent: 'space-between' }}>
-            <div onClick={() => handleSelectConsejo(rec.ID)} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
-              {rec.nombre}
-            </div>
-            <button className="boton-eliminar" onClick={() => handleDeleteConsejo(rec.ID)} style={{ marginTop: '5px' }}>
-              Eliminar
-            </button>
-          </li>
-        ))}
-      </ul>
+      <div className="sidebar">
+        <button className="boton-agregar" onClick={() => AgregarConsejoNuevo(null)} style={{ marginBottom: '10px' }}>
+          + Agregar
+        </button>
+        <div className="lista-recetas" style={{padding: "10px"}}>
+          <h3>Listado de consejos</h3>
+          <ul style={{ listStyle: 'none', padding: '0' }}>
+          {consejos.map((rec, index) => (
+            <li key={rec.ID || index} style={{ marginBottom: '10px', borderBottom: '1px solid #ccc', paddingBottom: '10px', display: 'flex', justifyContent: 'space-between' }}>
+              <div onClick={() => handleSelectConsejo(rec.ID)} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
+                {rec.nombre}
+              </div>
+              <button className="boton-eliminar" onClick={() => handleDeleteConsejo(rec.ID)} style={{ marginTop: '5px' }}>
+                Eliminar
+              </button>
+            </li>
+          ))}
+        </ul>
+        </div>
       </div>
-    </div>
-    {/* Formulario */}
-    <div className="formulario-consejo">
-    <h2>{selectedConsejoId ? 'Editar consejo' : 'Crea un nuevo consejo'}</h2>
-    <div>
-      {/* Mostrar loading durante el proceso de creación o actualización */}
-      {(loadingCreate || loadingUpdate) && <p>{loadingCreate ? 'Creando...' : 'Actualizando...'}</p>}
-      {success && <p>Consejo enviado exitosamente.</p>}
-      {error && <p style={{ color: 'red' }}>Error: {error}</p>}
-    </div>
-      <form onSubmit={handleSubmit} style={{marginTop: '30px'}}>
-        <div className="campo">
-          <label htmlFor="nombre">Nombre del consejo:</label>
-          <input
-            type="text"
-            id="nombre"
-            name="nombre"
-            value={consejo.nombre}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-        <div className="campo">
-          <label htmlFor="descripcion">Descripción:</label>
-          <textarea
-            id="descripcion"
-            name="descripcion"
-            value={consejo.descripcion}
-            onChange={handleInputChange}
-            rows="2"
-            required
-          ></textarea>
-        </div>
-        <div className="campo">
-          <label htmlFor="consejo">Contenido:</label>
-          <textarea
-            id="consejo"
-            name="consejo"
-            value={consejo.consejo}
-            onChange={handleInputChange}
-            rows="4"
-            required
-          ></textarea>
-        </div>
-        <div className="campo">
-          <label htmlFor="imagen">Imagen del consejo:</label>
-          <input
-            type="file"
-            id="imagen"
-            name="imagen"
-            accept="image/*"
-            onChange={handleImageChange}
-          />
-        </div>
-        <div className="campo">
-          <label htmlFor="valoracion">Valoración inicial:</label>
-          <input
-            type="number"
-            id="valoracion"
-            name="valoracion"
-            value={consejo.valoracion}
-            onChange={handleInputChange}
-            min="0"
-            max="5"
-            required
-          />
-        </div>
-        <button type="submit" className="boton-enviar" disabled={loadingCreate || loadingUpdate}>
-        {loadingCreate ? 'Creando...' : loadingUpdate ? 'Actualizando...' : 'Guardar Consejo'}
-      </button>
-      </form>
-    </div>
+      {/* Formulario */}
+      <div className="formulario-consejo">
+      <h2>{selectedConsejoId ? 'Editar consejo' : 'Crea un nuevo consejo'}</h2>
+      <div>
+        {/* Mostrar loading durante el proceso de creación o actualización */}
+        {(loadingCreate || loadingUpdate) && <p>{loadingCreate ? 'Creando...' : 'Actualizando...'}</p>}
+        {success && <p>Consejo enviado exitosamente.</p>}
+        {error && <p style={{ color: 'red' }}>Error: {error}</p>}
+      </div>
+        <form onSubmit={handleSubmit} style={{marginTop: '30px'}}>
+          <div className="campo">
+            <label htmlFor="nombre">Nombre del consejo:</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              value={consejo.nombre}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+          <div className="campo">
+            <label htmlFor="descripcion">Descripción:</label>
+            <textarea
+              id="descripcion"
+              name="descripcion"
+              value={consejo.descripcion}
+              onChange={handleInputChange}
+              rows="2"
+              required
+            ></textarea>
+          </div>
+          <div className="campo">
+            <label htmlFor="consejo">Contenido:</label>
+            <textarea
+              id="consejo"
+              name="consejo"
+              value={consejo.consejo}
+              onChange={handleInputChange}
+              rows="4"
+              required
+            ></textarea>
+          </div>
+          <div className="campo">
+            <label htmlFor="imagen">Imagen del consejo:</label>
+            <input
+              type="file"
+              id="imagen"
+              name="imagen"
+              accept="image/*"
+              onChange={handleImageChange}
+            />
+          </div>
+          <div className="campo">
+            <label htmlFor="valoracion">Valoración inicial:</label>
+            <input
+              type="number"
+              id="valoracion"
+              name="valoracion"
+              value={consejo.valoracion}
+              onChange={handleInputChange}
+              min="0"
+              max="5"
+              required
+            />
+          </div>
+          <button type="submit" className="boton-enviar" disabled={loadingCreate || loadingUpdate}>
+          {loadingCreate ? 'Creando...' : loadingUpdate ? 'Actualizando...' : 'Guardar Consejo'}
+        </button>
+        </form>
+      </div>
     </div>
   );
 }
