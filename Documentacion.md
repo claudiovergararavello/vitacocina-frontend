@@ -31,7 +31,7 @@ Asegúrate de tener instalados los siguientes programas en tu máquina:
    Abre tu terminal y ejecuta el siguiente comando para clonar el repositorio de Vitacocina:
 
    ```bash
-   git clone https://github.com/tu-usuario/vitacocina-frontend.git
+   git clone https://github.com/claudiovergararavello/vitacocina-frontend.git
 
 2. **Navega al directorio del proyecto: Cambia al directorio del proyecto clonado**:
 
