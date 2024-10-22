@@ -5,35 +5,38 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-const recetas = [
-  { id: 1, titulo: 'Título 1', imagen: '', valoracion: 2 },
-  { id: 2, titulo: 'Título 2', imagen: '', valoracion: 2 },
-  { id: 3, titulo: 'Título 3', imagen: '', valoracion: 2 },
-  { id: 4, titulo: 'Título 4', imagen: '', valoracion: 2 },
-  { id: 5, titulo: 'Título 5', imagen: '', valoracion: 2 },
-  { id: 6, titulo: 'Título 6', imagen: '', valoracion: 2 },
-  { id: 7, titulo: 'Título 7', imagen: '', valoracion: 2 },
-  { id: 8, titulo: 'Título 8', imagen: '', valoracion: 2 },
-  { id: 9, titulo: 'Título 9', imagen: '', valoracion: 2 },
-  { id: 10, titulo: 'Título 10', imagen: '', valoracion: 2 },
-  { id: 11, titulo: 'Título 11', imagen: '', valoracion: 2 },
-  { id: 12, titulo: 'Título 12', imagen: '', valoracion: 2 },
-  { id: 13, titulo: 'Título 13', imagen: '', valoracion: 2 },
-  { id: 14, titulo: 'Título 14', imagen: '', valoracion: 2 },
-  { id: 15, titulo: 'Título 15', imagen: '', valoracion: 2 },
-  { id: 16, titulo: 'Título 16', imagen: '', valoracion: 2 },
-  { id: 17, titulo: 'Título 17', imagen: '', valoracion: 2 },
-  { id: 18, titulo: 'Título 18', imagen: '', valoracion: 2 },
-  { id: 19, titulo: 'Título 19', imagen: '', valoracion: 2 },
-];
 function Buscador() {
   const navigate = useNavigate();
-  
+  const [recetas, setRecetas] = useState([]);
+  const [loading, setLoading] = useState(true); // Para manejar el estado de carga
+  const [error, setError] = useState(null); // Para manejar errores
+  const [tablaRecetas, SetTablaRecetas]= useState([]);
+  const [busqueda, setBusqueda]= useState("");
   // Paginacion
   const [recetaIndex, setRecetaIndex] = useState(0);
   const itemsPerPage = 8;
   const currentPage = Math.floor(recetaIndex / itemsPerPage) + 1;
   const totalPages = Math.ceil(recetas.length / itemsPerPage);
+
+  // Llamadas a la API cuando el componente se monta
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true); // Iniciar el loading
+        // Llamada a la API para recetas
+        const recetaResponse = await axios.get('https://iaugmt4hp4.execute-api.sa-east-1.amazonaws.com/stage_1/recetas?receta=all');
+        setRecetas(recetaResponse.data); // Asignar las recetas obtenidas al estado
+
+        setLoading(false); // Terminar el loading
+      } catch (error) {
+        console.error('Error al cargar los datos:', error);
+        setError('Hubo un problema al cargar los datos.');
+        setLoading(false); // Terminar el loading en caso de error
+      }
+    };
+
+    fetchData();
+  }, []);
 
   // Funcion para avanzar
   const nextRecetas = () => {
@@ -61,28 +64,13 @@ function Buscador() {
     });
   };
 
-  // Para buscador
-  const [usuarios, setUsuarios]= useState([]);
-  const [tablaUsuarios, setTablaUsuarios]= useState([]);
-  const [busqueda, setBusqueda]= useState("");
-
-  const peticionGet=async()=>{
-    await axios.get("https://jsonplaceholder.typicode.com/users")
-    .then(response=>{
-      setUsuarios(response.data);
-      setTablaUsuarios(response.data);
-    }).catch(error=>{
-      console.log(error);
-    })
-  }
-
   const handleChange=e=>{
     setBusqueda(e.target.value);
     filtrar(e.target.value);
   }
 
   const filtrar=(terminoBusqueda)=>{
-    var resultadosBusqueda=tablaUsuarios.filter((elemento)=>{
+    var resultadosBusqueda=tablaRecetas.filter((elemento)=>{
       if(elemento.name.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
       || elemento.company.name.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
       ){
@@ -90,22 +78,21 @@ function Buscador() {
       }
       return null;
     });
-    setUsuarios(resultadosBusqueda);
+    setRecetas(resultadosBusqueda);
   }
-
-  useEffect(()=>{
-    peticionGet();
-  },[])
 
   // Funcion verReceta
   const verReceta = (id) => {
     const data = { 
-      name: 'Porotos', 
-      descripcion: 'Pelar, Cocer, Aliñar, Comer', 
       id: id 
     };
     navigate("/Receta", { state: data });
   };
+
+  if (loading) {
+    return <div style={{display: "flex", justifyContent: "center", marginTop: "40px"}}><div className="loader"></div></div>;
+  }
+
 
   return (
     <div style={{paddingBottom: '10px'}}>
@@ -164,7 +151,7 @@ function Buscador() {
         <div className="recetas-carrusel">
           {recetas.slice(recetaIndex, recetaIndex + 8).map((receta) => (
             <div className="receta-item" key={receta.id} onClick={() => verReceta(receta.id)}>
-              <h3>{receta.titulo}</h3>
+              <h3>{receta.nombre}</h3>
               <div className="receta-imagen">[Imagen]</div>
               <div className="receta-valoracion">
                 Valoración: {"★".repeat(receta.valoracion)}
@@ -178,40 +165,6 @@ function Buscador() {
           <button onClick={nextRecetas} className='boton-siguiente-buscador'><FontAwesomeIcon icon={faArrowRight}/></button>
         </div>
       </div>
-     {/*<div>
-       <table>
-         <thead>
-           <tr>
-             <th>ID</th>
-             <th>Nombre</th>
-             <th>Teléfono</th>
-             <th>Nombre de Usuario</th>
-             <th>Correo</th>
-             <th>Sitio Web</th>
-             <th>Ciudad</th>
-             <th>Empresa</th>
-           </tr>
-         </thead>
-
-         <tbody>
-           {usuarios && 
-           usuarios.map((usuario)=>(
-             <tr key={usuario.id}>
-               <td>{usuario.id}</td>
-               <td>{usuario.name}</td>
-               <td>{usuario.phone}</td>
-               <td>{usuario.username}</td>
-               <td>{usuario.email}</td>
-               <td>{usuario.website}</td>
-               <td>{usuario.address.city}</td>
-               <td>{usuario.company.name}</td>
-             </tr>
-           ))}
-         </tbody>
-
-       </table>
-
-     </div>*/}
     </div>
   );
 }

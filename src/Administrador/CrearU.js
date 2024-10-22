@@ -68,6 +68,12 @@ function CrearU({ onClose }) {
     setError(null);
     setSuccess(false);
 
+    // Verificar que las contraseñas coincidan
+    if (user.contraseña !== user.ccontraseña) {
+      setError("Las contraseñas no coinciden. Por favor, inténtalo de nuevo.");
+      return; // Detener la ejecución si no coinciden
+    }
+
     if (selectedConsejoId === null) {
       // Crear nuevo Consejo
       setLoadingCreate(true);
@@ -274,6 +280,7 @@ function CrearU({ onClose }) {
             <input
               type="text"
               id="nombre"
+              name="nombre"
               value={user.nombre}
               onChange={handleInputChange}
               placeholder="Ingresa el nombre de usuario"
@@ -285,6 +292,7 @@ function CrearU({ onClose }) {
             <input
               type="email"
               id="mail"
+              name="mail"
               value={user.mail}
               onChange={handleInputChange}
               placeholder="Ingresa el correo electrónico"
@@ -296,6 +304,7 @@ function CrearU({ onClose }) {
             <input
               type="password"
               id="contraseña"
+              name="contraseña"
               value={user.contraseña}
               onChange={handleInputChange}
               placeholder="Ingresa la contraseña"
@@ -303,12 +312,12 @@ function CrearU({ onClose }) {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="confirmPassword">Confirmar Contraseña</label>
+            <label htmlFor="ccontraseña">Confirmar Contraseña</label>
             <input
               type="password"
-              id="confirmPassword"
-              value={user.contraseña}
+              id="ccontraseña"
               onChange={handleInputChange}
+              name="ccontraseña"
               placeholder="Confirma la contraseña"
               required
             />
