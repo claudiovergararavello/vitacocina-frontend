@@ -18,7 +18,7 @@ function Inicio() {
       try {
         setLoading(true); // Iniciar el loading
         // Llamada a la API para recetas
-        const recetaResponse = await axios.get('https://iaugmt4hp4.execute-api.sa-east-1.amazonaws.com/stage_1/recetas?receta=all');
+        const recetaResponse = await axios.get('https://iaugmt4hp4.execute-api.sa-east-1.amazonaws.com/stage_1/valoraciones/best');
         setRecetas(recetaResponse.data); // Asignar las recetas obtenidas al estado
 
         // Llamada a la API para consejos
@@ -74,10 +74,10 @@ function Inicio() {
         <div className="recetas">
           {recetas.slice(recetaIndex, recetaIndex + 4).map((receta) => (
             <div className="item" key={receta.ID} onClick={() => verReceta(receta.ID)}>
-              <h3 style={{fontSize: 'large'}}>{receta.nombre}</h3>
+              <h3 style={{fontSize: 'large'}}>{receta.receta_name}</h3>
               <div className="imagen">[Imagen]</div>
               <div className="receta-valoracion">
-                Valoración: {"★".repeat(receta.valoracion)}
+                Valoración: {"★".repeat(receta.mean_score)}
               </div>
             </div>
           ))}
@@ -85,16 +85,13 @@ function Inicio() {
         <button onClick={nextRecetas} className='boton-siguiente'>Siguiente</button>
       </div>
 
-      <h2>Consejos Mejor Evaluados</h2>
+      <h2>Últimos Consejos</h2>
       <div className="carrusel">
         <div className="consejos">
           {consejos.slice(consejoIndex, consejoIndex + 4).map((consejo) => (
             <div className="item" key={consejo.ID} onClick={() => verConsejo(consejo.ID)}>
               <h3>{consejo.nombre}</h3>
               <div className="imagen">[Imagen]</div>
-              <div className="consejo-valoracion">
-                Valoración: {"★".repeat(consejo.valoracion)}
-              </div>
             </div>
           ))}
         </div>

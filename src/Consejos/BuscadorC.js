@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './BuscadorC.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const consejos = [
   { id: 1, titulo: 'Consejo 1', descripcion: 'Descripción del consejo 1', valoracion: 5 },
@@ -39,14 +41,18 @@ function BuscadorConsejos() {
   return (
     <div className="buscador-consejos-container">
       <div style={{display: 'flex', justifyContent: 'center'}}>
-        <div style={{display: 'flex', alignItems: 'center'}}>
-          <input value={busqueda} placeholder="ej: Consejo saludable" className='buscador' onChange={handleChange}/>
-        </div>
-        <div style={{display: 'flex', alignItems: 'center'}}>
-          <button className='button-envio'>Buscar</button>
-        </div>
+        <div style={{display: 'flex', alignItems: 'center', border: '1px solid #ccc', borderRadius: '5px', padding: '5px'}}>
+        <input 
+          value={busqueda} 
+          placeholder="ej: porotos con riendas" 
+          className='buscador' 
+          onChange={handleChange} 
+          style={{ border: 'none', outline: 'none' }} // Para quitar los bordes del input
+        />
+        <FontAwesomeIcon icon={faSearch} style={{marginLeft: '8px', color: '#999'}} />
       </div>
-      <div className="buscador-consejos-filtro">
+      </div>
+      {/*<div className="buscador-consejos-filtro">
         <label htmlFor="valoracion">Filtrar por valoración: </label>
         <select
           id="valoracion"
@@ -61,17 +67,14 @@ function BuscadorConsejos() {
           <option value="2">★★</option>
           <option value="1">★</option>
         </select>
-      </div>
+      </div>*/}
 
-      <div className="consejos-lista">
+      <div className="consejos-lista" style={{paddingTop: '30px'}}>
         {consejosFiltrados.length > 0 ? (
           consejosFiltrados.map((consejo) => (
             <div key={consejo.id} className="consejo-item">
               <div className="consejo-titulo">{consejo.titulo}</div>
               <div className="consejo-imagen">[Imagen]</div>
-              <div className="consejo-valoracion">
-                Valoración: {"★".repeat(consejo.valoracion)}
-              </div>
             </div>
           ))
         ) : (
