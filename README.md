@@ -2,9 +2,9 @@
 Portal web donde los usuarios podrán explorar una amplia variedad de recetas saludables y consejos culinarios adaptados a diferentes dietas y niveles de habilidad en la cocina. De esta manera se estará ayudando a los usuarios a perfeccionar sus habilidades y a comprender mejor los beneficios de los ingredientes que utilizan.
 
 ### Integrantes
-Esteban Carrasco
-Rodrigo Vera
-Claudio Vergara
+Esteban Carrasco \
+Rodrigo Vera \
+Claudio Vergara \
 
 # Instalación
 Instrucciones paso a paso para instalar y ejecutar el proyecto en el entorno local.
