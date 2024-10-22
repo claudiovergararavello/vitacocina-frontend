@@ -27,7 +27,3 @@ Véase la sección sobre [running tests](https://facebook.github.io/create-react
 Construye la app para producción en el carpeta `build`.\
 Agrupa correctamente los paquetes React en modo de producción y optimiza la compilación para obtener el mejor rendimiento.
 
-La compilación está minificada y los nombres de archivo incluyen los hashes.\
-La aplicación está lista para ser desplegada.
-
-
