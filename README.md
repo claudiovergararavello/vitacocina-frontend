@@ -1,5 +1,5 @@
 # VitaCocina
-Portal web donde los usuarios podrán explorar una amplia variedad de recetas saludables y consejos culinarios adaptados a diferentes dietas y niveles de habilidad en la cocina. De esta manera se estará ayudando a los usuarios a perfeccionar sus habilidades y a comprender mejor los beneficios de los ingredientes que utilizan.
+Portal web donde los usuarios podrán explorar una amplia variedad de recetas saludables y consejos culinarios adaptados a diferentes dietas y niveles de habilidad en la cocina. De esta manera se estará ayudando a los usuarios a perfeccionar sus habilidades y a comprender mejor los beneficios de los ingredientes que utilizan. Contamos con una versión pre-productiva para su revisión en el siguiente enlace [VitaCocina](http://vitacocina-webpage.s3-website-sa-east-1.amazonaws.com/).
 
 ### Integrantes
 Esteban Carrasco \
