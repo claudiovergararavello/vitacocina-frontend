@@ -133,7 +133,7 @@ function Header(){
       </div>
       <header className="header">
         <div style={{alignSelf: 'center'}}>
-          <img src="logo.png" alt="VitaCocina" className="logo" />
+          <img alt="VitaCocina" className="logo" />
         </div>
 
         <div className="menu-icon" onClick={toggleMenu}>

@@ -343,7 +343,6 @@ function Creacion() {
             type="text"
             id="nombre"
             name="nombre"
-            placeholder="Ingrese el nombre de la receta"
             value={receta.nombre}
             onChange={handleInputChange}
             required
@@ -355,7 +354,6 @@ function Creacion() {
             id="descripcion"
             name="descripcion"
             value={receta.descripcion}
-            placeholder="Ingrese una descripión de la receta"
             onChange={handleInputChange}
             rows="3"
             required
@@ -370,7 +368,6 @@ function Creacion() {
             value={inputValue}
             onChange={handleInputChangeIngredientes}
             onKeyDown={handleKeyPress}
-            placeholder="Añada ingredientes y presione Enter"
           />
           <button className="boton-agregar" type="button" onClick={handleAddItem}>Agregar</button>
 
@@ -397,7 +394,6 @@ function Creacion() {
             id="preparacion"
             name="preparacion"
             value={receta.preparacion}
-            placeholder="Describa la receta"
             onChange={handleInputChange}
             rows="5"
             required

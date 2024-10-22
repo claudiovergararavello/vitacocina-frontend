@@ -283,7 +283,6 @@ function CrearU({ onClose }) {
               name="nombre"
               value={user.nombre}
               onChange={handleInputChange}
-              placeholder="Ingresa el nombre de usuario"
               required
             />
           </div>
@@ -295,7 +294,6 @@ function CrearU({ onClose }) {
               name="mail"
               value={user.mail}
               onChange={handleInputChange}
-              placeholder="Ingresa el correo electrónico"
               required
             />
           </div>
@@ -307,7 +305,6 @@ function CrearU({ onClose }) {
               name="contraseña"
               value={user.contraseña}
               onChange={handleInputChange}
-              placeholder="Ingresa la contraseña"
               required
             />
           </div>
@@ -318,7 +315,6 @@ function CrearU({ onClose }) {
               id="ccontraseña"
               onChange={handleInputChange}
               name="ccontraseña"
-              placeholder="Confirma la contraseña"
               required
             />
           </div>
