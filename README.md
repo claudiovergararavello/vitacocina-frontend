@@ -4,7 +4,7 @@ Portal web donde los usuarios podrán explorar una amplia variedad de recetas sa
 ### Integrantes
 Esteban Carrasco \
 Rodrigo Vera \
-Claudio Vergara \
+Claudio Vergara 
 
 # Instalación
 Instrucciones paso a paso para instalar y ejecutar el proyecto en el entorno local.
