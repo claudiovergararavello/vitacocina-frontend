@@ -150,6 +150,7 @@ El proyecto Vitacocina utiliza una variedad de tecnologías y herramientas que f
 
 - **Node.js**: Entorno de ejecución de JavaScript en el servidor, utilizado para crear y gestionar el servidor backend.
 - **Express**: Framework de Node.js que facilita la creación de aplicaciones web y APIs.
+-  **MongoDB**: Base de datos NoSQL utilizada para almacenar y gestionar datos de manera eficiente y escalable. Permite el manejo de documentos en formato JSON, lo que se integra fácilmente con las aplicaciones de Node.js.
 
 ## Herramientas de Desarrollo
 
