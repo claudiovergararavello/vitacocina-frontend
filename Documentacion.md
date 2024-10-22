@@ -205,6 +205,11 @@ La Licencia MIT es una de las licencias más permisivas. Permite a los desarroll
 
 La única condición es que se incluya el aviso de copyright y la nota de licencia en todas las copias o partes sustanciales del software.
 
+## Aprendizaje
+### Claudio
+### Esteban
+### Rodrigo
+
 
 
 
