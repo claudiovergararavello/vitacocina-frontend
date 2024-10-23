@@ -209,6 +209,7 @@ La única condición es que se incluya el aviso de copyright y la nota de licenc
 ### Claudio
 ### Esteban
 ### Rodrigo
+- Gracias al desarrollo hasta este momento del proyecto, he aprendido una forma de trabajo grupal basada en nuevas herramientas, tales como Jira, Slack y el sistema de ramas de GitHub, herramientas que resultan muy útiles y efectivas para el trabajo en equipo y que previamente no había utilizado. Además, gracias a la ayuda y colaboración de mis compañeros aprendí el funcionamiento de Apis y AWS para el uso común de los datos en la base de datos.
 
 
 
