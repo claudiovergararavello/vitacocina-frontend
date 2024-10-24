@@ -1,6 +1,9 @@
 # VitaCocina
 Portal web donde los usuarios podrán explorar una amplia variedad de recetas saludables y consejos culinarios adaptados a diferentes dietas y niveles de habilidad en la cocina. De esta manera se estará ayudando a los usuarios a perfeccionar sus habilidades y a comprender mejor los beneficios de los ingredientes que utilizan. Contamos con una versión pre-productiva para su revisión en el siguiente enlace [VitaCocina](http://vitacocina-webpage.s3-website-sa-east-1.amazonaws.com/).
 
+# Video Entrega 1
+Veasé [Video Entrega 1](https://drive.google.com/file/d/1B3rjq94RmdHwjjrV9jQNVyUdSfMg4INa/view?usp=drive_link) para más información del proyecto.
+
 # Última modificación
 Este proyecto comenzó con la idea de utilizar ReactJS para el frontend, NodeJS para el backend y DynamoDB como base de datos. Sin embargo, a lo largo del desarrollo, se decidió optimizar la arquitectura combinando varias tecnologías de AWS. Para el backend, se reemplazó NodeJS con funciones Lambda integradas con API Gateway. Este cambio no solo incrementó la eficiencia en la gestión de las actualizaciones del backend, sino que también permitió una mayor unificación y simplificación de la lógica de negocio, aprovechando al máximo la escalabilidad y flexibilidad de los servicios serverless de AWS.
 

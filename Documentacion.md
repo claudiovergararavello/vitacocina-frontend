@@ -2,6 +2,9 @@
 
 Vitacocina es una aplicación web diseñada para ayudar a los usuarios a gestionar recetas y consejos de cocina de manera fácil y efectiva. La plataforma permite a los usuarios crear, editar y visualizar recetas, así como acceder a consejos útiles que mejoran su experiencia culinaria. Con una interfaz intuitiva y funcionalidades como la búsqueda y filtrado de recetas, Vitacocina busca ser una herramienta útil para aquellos que desean mejorar sus habilidades en la cocina.
 
+## Video Entrega 1
+Veasé [Video Entrega 1](https://drive.google.com/file/d/1B3rjq94RmdHwjjrV9jQNVyUdSfMg4INa/view?usp=drive_link) para más información del proyecto.
+
 ## Descripción del Proyecto
 
 Vitacocina es una aplicación web que permite a los usuarios gestionar sus recetas y consejos de cocina de manera eficiente. Esta aplicación está destinada principalmente a personas jóvenes con poca experiencia en la cocina, proporcionando una plataforma fácil de usar donde pueden aprender, explorar y experimentar con nuevas recetas.
