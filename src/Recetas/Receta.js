@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import './Recetas.css';
 import axios from 'axios';
+import jsPDF from 'jspdf';
 
 function Receta() {
     // Datos
@@ -72,6 +73,19 @@ function Receta() {
             setComentarios([...comentarios, comentario]);
             setComentario('');
         }
+    };
+
+    const generatePDF = () => {
+        const doc = new jsPDF();
+        doc.setFontSize(16);
+        doc.text(`Listado de ingredientes para ${receta.nombre}`, 10, 10);
+        
+        doc.setFontSize(12);
+        receta.ingredientes.forEach((ingrediente, index) => {
+            doc.text(`${index + 1}. ${ingrediente}`, 10, 20 + index * 10);
+        });
+        
+        doc.save(`Ingredientes_${receta.nombre}.pdf`);
     };
 
     // Si el contenido aún está cargando, muestra el mensaje de loading
@@ -203,10 +217,10 @@ function Receta() {
                 <img style={{width: '100%', maxWidth: '35px'}} src="/cesta.png" alt="Compra"/>
             </div>
             <div style={{margin: '7px'}}>
-                <p style={{color: 'red'}}><strong>Compra los ingredientes acá</strong></p> 
+                <p style={{color: 'red'}}><strong>Listado de ingredientes</strong></p> 
             </div>
             <div style={{display: 'flex', margin: '7px', alignItems:'center'}}>
-                <button type="submit" className='boton-carrito'>Enviar</button>
+                <button type="submit" className='boton-carrito' onClick={generatePDF}>Obtener</button>
             </div>
         </div>
         </div>
