@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './Login.css'; 
+import './Login.css';
 
-function Login({ isOpen, onClose }) {
+function Login({ isOpen, onClose, onLoginSuccess }) { // Agregamos `onLoginSuccess` como prop
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -9,6 +9,7 @@ function Login({ isOpen, onClose }) {
     e.preventDefault();
     console.log('Correo Electrónico:', email);
     console.log('Contraseña:', password);
+    onLoginSuccess(); // Llamamos a `onLoginSuccess` al iniciar sesión
     onClose(); // Cierra el modal después de enviar el formulario
   };
 
