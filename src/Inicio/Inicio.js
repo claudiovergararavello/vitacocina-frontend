@@ -69,7 +69,7 @@ function Inicio() {
 
   return (
     <div className="inicio">
-      <h2>Recetas Mejor Valoradas</h2>
+      <h2>Recetas Mejor Evaluadas</h2>
       <div className="carrusel">
         <div className="recetas">
           {recetas.slice(recetaIndex, recetaIndex + 4).map((receta) => (
@@ -85,7 +85,7 @@ function Inicio() {
         <button onClick={nextRecetas} className='boton-siguiente'>Siguiente</button>
       </div>
 
-      <h2>Últimos Consejos Ingresados</h2>
+      <h2>Últimos Consejos Creados</h2>
       <div className="carrusel">
         <div className="consejos">
           {consejos.slice(consejoIndex, consejoIndex + 4).map((consejo) => (
