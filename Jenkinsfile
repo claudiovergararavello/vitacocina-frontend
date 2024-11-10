@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        PATH = "/home/ec2-user/.nvm/versions/node/v22.11.0/bin:$PATH"
+    }
     stages {
         stage('Build') {
             steps {
