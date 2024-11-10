@@ -186,7 +186,7 @@ function Receta() {
                     </div>
                     <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
                         {comentarios.length === 0 ? (
-                            <p>No hay comentarios aún.</p>
+                            <p>No hay comentarios.</p>
                         ) : (
                             comentarios.map((com, index) => (
                                 <li key={index} style={{ marginBottom: '10px', padding: '10px', border: '1px solid #eee', borderRadius: '5px', background: '#f9f9f9' }}>
