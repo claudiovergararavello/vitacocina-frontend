@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
-import './Login.css';
+import './Login.css'; 
 
-function Login({ isOpen, onClose, onLoginSuccess }) { // Agregamos `onLoginSuccess` como prop
+function Login({ isOpen, onClose, onLoginSuccess }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Correo Electrónico:', email);
-    console.log('Contraseña:', password);
-    onLoginSuccess(); // Llamamos a `onLoginSuccess` al iniciar sesión
-    onClose(); // Cierra el modal después de enviar el formulario
+
+    // Validación de credenciales específicas
+    if (email === 'admin@usm.cl' && password === '123456') {
+      setError(''); // Limpiar el mensaje de error
+      onLoginSuccess(); // Notificar éxito de inicio de sesión
+      onClose(); // Cerrar el modal
+    } else {
+      setError('Credenciales incorrectas. Inténtalo de nuevo.');
+    }
   };
 
   if (!isOpen) return null;
@@ -43,6 +49,7 @@ function Login({ isOpen, onClose, onLoginSuccess }) { // Agregamos `onLoginSucce
               required
             />
           </div>
+          {error && <p className="error-message">{error}</p>}
           <button type="submit" className="btn-login">
             Iniciar Sesión
           </button>
