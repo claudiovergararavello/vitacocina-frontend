@@ -1,6 +1,9 @@
 # VitaCocina
 Portal web donde los usuarios podrán explorar una amplia variedad de recetas saludables y consejos culinarios adaptados a diferentes dietas y niveles de habilidad en la cocina. De esta manera se estará ayudando a los usuarios a perfeccionar sus habilidades y a comprender mejor los beneficios de los ingredientes que utilizan. Contamos con una versión pre-productiva para su revisión en el siguiente enlace [VitaCocina](http://vitacocina-webpage.s3-website-sa-east-1.amazonaws.com/).
 
+# Video Entrega 2
+Veasé [Video Entrega 2](https://drive.google.com/file/d/1HuTD6TDP7W4WIitv-ztiHRMreNlGo4OO/view) para más información del proyecto.
+
 # Video Entrega 1
 Veasé [Video Entrega 1](https://drive.google.com/file/d/1B3rjq94RmdHwjjrV9jQNVyUdSfMg4INa/view?usp=drive_link) para más información del proyecto.
 
