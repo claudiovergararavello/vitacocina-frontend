@@ -2,6 +2,9 @@ const { Builder } = require('selenium-webdriver');
 
 (async () => {
   try {
+
+    const BASE_URL = process.env.BASE_URL || 'http://vitacocina-jenkins.s3-website-sa-east-1.amazonaws.com';
+
     // Iniciar el navegador
     const driver = await new Builder().forBrowser('chrome').build();
 
@@ -21,7 +24,7 @@ const { Builder } = require('selenium-webdriver');
 
     // Definir las páginas a visitar
     const pagesToVisit = [
-      { url: 'http://localhost:3000', description: 'Página Principal' },
+      { url: `${BASE_URL}/`, description: 'Página Principal' },
       { url: 'http://localhost:3000/recetas/favoritos', description: 'Recetas Favoritas' },
       { url: 'http://localhost:3000/recetas/creacion', description: 'Crear Recetas' },
       { url: 'http://localhost:3000/recetas/buscador', description: 'Buscador de Recetas' },
