@@ -44,9 +44,9 @@ pipeline {
         stage('Test Slack Notification') {
             steps {
                 slackSend (
-                    channel: '#general', // Cambia esto al canal deseado
+                    channel: '#equipo4', // Cambia esto al canal deseado
                     color: 'good',
-                    message: "🚀 Slack configurado correctamente desde Jenkins"
+                    message: "🚀 Ejecución de build iniciada correctamente desde Jenkins."
                 )
             }
         }
