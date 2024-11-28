@@ -24,15 +24,15 @@ const { Builder } = require('selenium-webdriver');
 
     // Definir las páginas a visitar
     const pagesToVisit = [
-      { url: `${BASE_URL}/`, description: 'Página Principal' },
-      { url: 'http://localhost:3000/recetas/favoritos', description: 'Recetas Favoritas' },
-      { url: 'http://localhost:3000/recetas/creacion', description: 'Crear Recetas' },
-      { url: 'http://localhost:3000/recetas/buscador', description: 'Buscador de Recetas' },
-      { url: 'http://localhost:3000/consejos/favoritosc', description: 'Consejos Favoritos' },
-      { url: 'http://localhost:3000/consejos/buscadorc', description: 'Buscador de Consejos' },
-      { url: 'http://localhost:3000/administrador/crearu', description: 'Crear Usuario en Administrador' },
-      { url: 'http://localhost:3000/administrador/creacionr', description: 'Crear Receta en Administrador' },
-      { url: 'http://localhost:3000/administrador/creacionc', description: 'Crear Consejo en Administrador' },
+      { url: `${BASE_URL}`, description: 'Página Principal' },
+      { url: `${BASE_URL}/recetas/favoritos`, description: 'Recetas Favoritas' },
+      { url: `${BASE_URL}/recetas/creacion`, description: 'Crear Recetas' },
+      { url: `${BASE_URL}/recetas/buscador`, description: 'Buscador de Recetas' },
+      { url: `${BASE_URL}/consejos/favoritosc`, description: 'Consejos Favoritos' },
+      { url: `${BASE_URL}/consejos/buscadorc`, description: 'Buscador de Consejos' },
+      { url: `${BASE_URL}/administrador/crearu`, description: 'Crear Usuario en Administrador' },
+      { url: `${BASE_URL}/administrador/creacionr`, description: 'Crear Receta en Administrador' },
+      { url: `${BASE_URL}/administrador/creacionc`, description: 'Crear Consejo en Administrador' },
     ];
 
     // Navegar a las diferentes páginas

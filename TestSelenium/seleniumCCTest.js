@@ -2,6 +2,9 @@ const { Builder, By, until, Key } = require('selenium-webdriver');
 
 (async () => {
   try {
+
+    const BASE_URL = process.env.BASE_URL || 'http://vitacocina-jenkins.s3-website-sa-east-1.amazonaws.com';
+
     // Iniciar el navegador (Chrome)
     const driver = await new Builder().forBrowser('chrome').build();
 
@@ -10,7 +13,7 @@ const { Builder, By, until, Key } = require('selenium-webdriver');
 
     console.log("Navegando a la página de creación de consejos...");
     // Navegar a la página donde aparece la caja de login (URL original)
-    await driver.get('http://localhost:3000/administrador/creacionc');
+    await driver.get(`${BASE_URL}/administrador/creacionc`);
 
     console.log("Esperando a que aparezca el botón de iniciar sesión...");
     // Esperar y hacer clic en el botón de login/registro

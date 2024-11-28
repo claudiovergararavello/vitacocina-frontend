@@ -2,6 +2,9 @@ const { Builder, By, until } = require('selenium-webdriver');
 
 (async () => {
   try {
+
+    const BASE_URL = process.env.BASE_URL || 'http://vitacocina-jenkins.s3-website-sa-east-1.amazonaws.com';
+
     // Iniciar el navegador (Chrome)
     const driver = await new Builder().forBrowser('chrome').build();
 
@@ -10,11 +13,11 @@ const { Builder, By, until } = require('selenium-webdriver');
 
     console.log("Navegando a la página principal...");
     // Navegar a la página principal
-    await driver.get('http://localhost:3000');
+    await driver.get(`${BASE_URL}`);
 
     console.log("Navegando a la página de la receta...");
     // Navegar a la página de recetas
-    await driver.get('http://localhost:3000/Receta');
+    await driver.get(`${BASE_URL}/Receta`);
 
     // Esperar 5 segundos para simular la visualización de la receta
     console.log("Esperando dentro de la receta...");
@@ -22,7 +25,7 @@ const { Builder, By, until } = require('selenium-webdriver');
 
     console.log("Volviendo a la página principal...");
     // Volver a la página principal
-    await driver.get('http://localhost:3000');
+    await driver.get(`${BASE_URL}`);
 
     // Esperar 2 segundos para asegurar que la página de inicio se recarga completamente
     await driver.sleep(2000);

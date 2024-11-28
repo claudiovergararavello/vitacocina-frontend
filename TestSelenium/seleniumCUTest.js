@@ -2,6 +2,9 @@ const { Builder, By, until } = require('selenium-webdriver');
 
 (async () => {
   try {
+
+    const BASE_URL = process.env.BASE_URL || 'http://vitacocina-jenkins.s3-website-sa-east-1.amazonaws.com';
+
     // Iniciar el navegador (Chrome)
     const driver = await new Builder().forBrowser('chrome').build();
 
@@ -10,7 +13,7 @@ const { Builder, By, until } = require('selenium-webdriver');
 
     console.log("Navegando a la página de creación de usuario...");
     // Navegar a la página de creación
-    await driver.get('http://localhost:3000/administrador/crearu');
+    await driver.get(`${BASE_URL}/administrador/crearu`);
 
     console.log("Esperando a que aparezca el botón de iniciar sesión...");
     // Esperar y hacer clic en el botón "Iniciar sesión"
