@@ -2,6 +2,9 @@ const { Builder, By, until } = require('selenium-webdriver');
 
 (async () => {
   try {
+
+    const BASE_URL = process.env.BASE_URL || 'http://vitacocina-jenkins.s3-website-sa-east-1.amazonaws.com';
+
     // Iniciar el navegador (Chrome)
     const driver = await new Builder().forBrowser('chrome').build();
 
@@ -10,7 +13,7 @@ const { Builder, By, until } = require('selenium-webdriver');
 
     console.log("Navegando a la página principal...");
     // Navegar a la página principal
-    await driver.get('http://localhost:3000');
+    await driver.get(`${BASE_URL}`);
 
     // Hacer clic en el enlace de "Iniciar Sesión" en el header
     console.log("Abriendo el formulario de inicio de sesión...");
